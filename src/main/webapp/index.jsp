@@ -9,25 +9,24 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="toggle">
-                <a><i class="fa-solid fa-bars-staggered"></i></a>
-            </div>
-            <div class="menu">
-                <ul class = "nav-menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="container-logo">
-                <img class="imgLogo" src="logo.svg" alt="logo bellissimo">
-            </div>
-        </nav>
-    </header>
+
+    <nav>
+        <div class="toggle">
+            <a><i class="fa-solid fa-bars-staggered"></i></a>
+        </div>
+        <div class="menu">
+            <ul class = "nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="container-logo">
+            <img class="imgLogo" src="logo.svg" alt="logo bellissimo">
+        </div>
+    </nav>
 
     <div class="container">
         <div class="row">
