@@ -16,11 +16,11 @@
         </div>
         <div class="menu">
             <ul class = "nav-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#"><b>Home</b></a></li>
+                <li><a href="#"><b>About</b></a></li>
+                <li><a href="#"><b>Services</b></a></li>
+                <li><a href="#"><b>Portfolio</b></a></li>
+                <li><a href="#"><b>Contact Us</b></a></li>
             </ul>
         </div>
         <div class="container-logo">
