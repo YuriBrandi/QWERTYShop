@@ -23,7 +23,6 @@
             <ul class = "nav-menu">
                 <li>
                     <form>
-
                         <input type="text" placeholder="Cerca...">
                         <input type="submit" value="C">
                     </form>
