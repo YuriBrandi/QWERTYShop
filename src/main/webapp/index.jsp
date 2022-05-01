@@ -6,7 +6,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="img/website_icon.ico?v=6">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -38,13 +40,13 @@
         <div class="container-logo">
 
             <a href="./">
-                <img id="imgLogo" src="./img/shop_icon.svg" alt="shop logo">
+                <img id="imgLogo" src="img/shop_icon.svg" alt="shop logo">
             </a>
             <h3 id="shop_title">Qwerty Shop</h3>
         </div>
         <div class="shop-buttons">
-            <img src="./img/keycap_icon.svg" alt="account">
-            <img src="./img/keycap_icon.svg" alt="carrello">
+            <img src="img/keycap_icon.svg" alt="account">
+            <img src="img/keycap_icon.svg" alt="carrello">
         </div>
         <div class="shop-buttons">
             <a href="#"><i class="fa-solid fa-user"></i></a>
@@ -137,7 +139,7 @@
             </div>
         </div>
     </div>
-
+    <br>
     <footer>
         <p id="credits">© Della Rocca & Brandi. Tutti i diritti riservati.</p>
     </footer>
