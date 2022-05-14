@@ -171,11 +171,11 @@ ul li{
 }
 
 footer {
-    position: fixed;
+    /*position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
-    /*background-color: #FFCB73; per debugging */
+    width: 100%;*/
+    /*background-color: #FFCB73; /*per debugging */
 }
 
 #credits {
