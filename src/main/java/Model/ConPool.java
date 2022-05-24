@@ -44,7 +44,7 @@ public class ConPool {
 	public static Connection getConnection() throws SQLException {
 		if (datasource == null) {
 			PoolProperties p = new PoolProperties();
-			p.setUrl("jdbc:mysql://storage1400.is.cc/st23621_progettoTSW?enabledTLSProtocols=TLSv1.2" +
+			p.setUrl("jdbc:mysql://storage1400.is.cc:3306/st23621_progettoTSW?enabledTLSProtocols=TLSv1.2" +
 					"&serverTimezone=" + TimeZone.getDefault().getID());
 			p.setDriverClassName("com.mysql.cj.jdbc.Driver");
 			p.setUsername("st23621_admin");
