@@ -55,6 +55,18 @@
             <span id="cart-count">0</span>
         </div>
 
+        <div class="search-bar">
+            <form>
+                <div>
+                    <input class="search-txt_box" type="text" placeholder="Cerca...">
+                    <button class="search-btn" type="submit">
+                        <i class="fa-solid fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
     </nav>
 
     <div class="container">
