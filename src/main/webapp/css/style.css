@@ -104,14 +104,14 @@ ul li{
 
 .container-logo {
     width: 100%;
-    display: block;
+    display: flex;
 }
 
 
 .container-logo a {
     text-decoration: none;
+    color: #000;
     margin: 0 auto;
-    display: table;
 }
 
 #imgLogo {
@@ -125,9 +125,8 @@ ul li{
 }
 
 #shop_title {
-    margin-top: 0;
     font-size: 1.5rem;
-    text-align: center;
+    float: right;
 }
 
 .shop-buttons {

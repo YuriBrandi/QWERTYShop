@@ -40,8 +40,8 @@
 
             <a href="./">
                 <img id="imgLogo" src="img/shop_icon.svg" alt="shop logo">
+                <h3 id="shop_title">Qwerty Shop</h3>
             </a>
-            <h3 id="shop_title">Qwerty Shop</h3>
         </div>
         <div class="shop-buttons">
             <img src="img/keycap_icon.svg" alt="account">
