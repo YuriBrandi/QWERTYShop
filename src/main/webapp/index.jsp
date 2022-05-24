@@ -54,90 +54,32 @@
         <div class="shop-buttons-overlay">
             <span id="cart-count">0</span>
         </div>
-
     </nav>
+    <!-- ~~~~~~~~~~~ -->
+
+    <!-- CAROUSEL -->
 
     <div class="container">
-        <div class="row">
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: green">
-                <p></p>
+        <div id="carousel">
+            <div class="slide-image" id="slide1">
+                ciao1
             </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: green">
-                <p></p>
+            <div class="slide-image" id="slide2">
+                ciao2
             </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: green">
-                <p></p>
+            <div class="slide-image" id="slide3">
+                ciao3
             </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: green">
-                <p></p>
+            <div class="slide-image" id="slide4">
+                ciao4
             </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: green">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: green">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: green">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: green">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: green">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: green">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: green">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: green">
-                <p></p>
+            <div class="slide-image" id="slide5">
+                ciao5
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: blue">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: blue">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: blue">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: blue">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: blue">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: blue">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: blue">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: blue">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: blue">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: blue">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: blue">
-                <p></p>
-            </div>
-            <div class="col-lg-1 col-sm-4 col-xs-12" style = "background: blue">
-                <p></p>
-            </div>
-        </div>
-    </div>
+    <!-- ~~~~~~~~~~~ -->
     <br>
     <footer>
         <p id="credits">© Della Rocca & Brandi. Tutti i diritti riservati.</p>
