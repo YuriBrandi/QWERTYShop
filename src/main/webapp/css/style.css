@@ -110,7 +110,6 @@ ul li{
 
 .container-logo a {
     text-decoration: none;
-    color: #000;
     margin: 0 auto;
 }
 
@@ -125,7 +124,8 @@ ul li{
 }
 
 #shop_title {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    color: #000;
     float: right;
 }
 
@@ -156,6 +156,46 @@ ul li{
     top: 1.6rem;
     right: 1.7rem;
     display: flex;
+}
+
+.search-bar > form > div {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.search-txt_box {
+    font-size: .8rem;
+    padding: .3rem;
+    border-radius: .5rem;
+    border: none;
+    width: 60%;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.search-txt_box:hover {
+
+    border: .15rem solid #262626;
+}
+
+.search-btn {
+    background-color: #262626;
+    font-size: .9rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 1rem;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.search-btn:hover {
+    background-color: #FFCB73;
+    color: #262626;
 }
 
 #cart-count{
