@@ -21,12 +21,6 @@
         <div class="menu">
             <!-- Sotto certe dimensioni, il carrello e l'account si spostano qui dentro -->
             <ul class = "nav-menu">
-                <li>
-                    <form>
-                        <input type="text" placeholder="Cerca...">
-                        <input type="submit" value="C">
-                    </form>
-                </li>
                 <li class="small-screen-option"><a href="#"><b>Login</b></a></li>
                 <li class="small-screen-option"><a href="#"><b>Carrello (0)</b></a></li>
                 <li><a href="#"><b>Tastiere</b></a></li>
@@ -42,20 +36,33 @@
                 <h3 id="shop_title">Qwerty Shop</h3>
             </a>
         </div>
-        <div class="shop-buttons">
+        <div class="shop-button">
             <img src="img/keycap_icon.svg" alt="account">
             <img src="img/keycap_icon.svg" alt="carrello">
         </div>
-        <div class="shop-buttons">
+        <div class="shop-button">
             <a href="#"><i class="fa-solid fa-user"></i></a>
             <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
-        <div class="shop-buttons-overlay">
+        <div class="shop-button-overlay">
             <span id="cart-count">0</span>
         </div>
+
     </nav>
-    <!-- ~~~~~~~~~~~ -->
-    <br><br><br><br>
+
+    <div class="search-bar">
+        <form>
+            <div>
+                <input class="search-txt_box" type="text" placeholder="Cerca...">
+                <button class="search-btn" type="submit">
+                    <i class="fa-solid fa-search"></i>
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+
     <!-- CAROUSEL -->
 
     <div class="container">
@@ -101,6 +108,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- ~~~~~~~~~~~ -->
 
