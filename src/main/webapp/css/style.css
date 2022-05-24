@@ -47,8 +47,14 @@ nav {
     color: #262626;
     font-size: 1.5rem;
     cursor: pointer;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
 
+.toggle a:hover{
+    color: #FFCB73;
+}
 
 .menu{
     margin: 0;
@@ -109,7 +115,7 @@ ul li{
     position: fixed;
     background: #f6f6f6;
     top: 0;
-    padding-top: 5px;
+    padding-top: .5rem;
 }
 
 
@@ -119,11 +125,10 @@ ul li{
 }
 
 #imgLogo {
-
-    width: 120px;
+    width: 8rem;
 }
 
-#imgLogo:hover {
+.container-logo:hover #imgLogo{
     /*Crea un'ombra nella posizione stessa dell'immagine, dando un effetto di cambio colore*/
     filter: opacity(100%) drop-shadow(0 0 0 #FFCB73);
 }
@@ -134,7 +139,7 @@ ul li{
     color: #111111;
 }
 
-.shop-buttons {
+.shop-button {
     position: fixed;
     top: 2rem;
     right: 2rem;
@@ -142,21 +147,27 @@ ul li{
 
 }
 
-.shop-buttons a{
+.shop-button a{
     text-decoration: none;
     color: #262626;
     font-size: 1.3rem;
     margin: 0.4rem 0.7rem 0 2.75rem;
 
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
 
-.shop-buttons img{
+.shop-button a:hover{
+    color: #FFCB73;
+}
+
+.shop-button img{
     float: left;
     width: 45px;
     margin-left: 2rem;
 }
 
-.shop-buttons-overlay {
+.shop-button-overlay {
     position: fixed;
     top: 1.6rem;
     right: 1.7rem;
@@ -172,6 +183,55 @@ ul li{
     color: #111111;
     text-align: center;
     font-size: 0.7rem;
+}
+
+.search-bar{
+    margin-top: 8rem;
+    margin-bottom: 1rem;
+}
+.search-bar > form > div {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.search-txt_box {
+    font-size: .9rem;
+    padding: .4rem;
+    border-radius: .5rem;
+    border: none;
+    width: 60%;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.search-txt_box:hover {
+
+    border: .15rem solid #262626;
+}
+
+.search-btn {
+    background-color: #262626;
+
+    font-size: .9rem;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 1rem;
+    width: 2rem;
+    height: 2rem;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.search-btn:hover {
+    background-color: #FFCB73;
+    color: #262626;
+
 }
 
 footer {
@@ -427,11 +487,11 @@ footer {
         display: list-item;
     }
 
-    .shop-buttons {
+    .shop-button {
         display: none;
     }
 
-    .shop-buttons-overlay {
+    .shop-button-overlay {
         display: none;
     }
     .col-xs-12 {
