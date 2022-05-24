@@ -32,6 +32,7 @@ nav {
     padding-top:2rem;
     padding-bottom: 2rem;
     display: inline;
+    background: #f6f6f6;
 }
 
 .toggle{
@@ -105,6 +106,10 @@ ul li{
 .container-logo {
     width: 100%;
     display: flex;
+    position: fixed;
+    background: #f6f6f6;
+    top: 0;
+    padding-top: 5px;
 }
 
 
@@ -211,7 +216,7 @@ footer {
     padding-top: 175px ;
 }
 
-#carousel h1, p {
+#carousel h1, #carousel p {
     color: #f6f6f6;
 }
 
@@ -219,16 +224,18 @@ footer {
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url("../img/wallpaper2.jpeg");
 }
 #slide3 {
-    background: yellow;
-}
-#slide4 {
-    background: green;
-}
-#slide5 {
-    background: aqua;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url("../img/wallpaper3.jpg");
 }
 
 /* -- */
+
+.center {
+    text-align: center;
+}
+
+.big-icon {
+    font-size: 45px;
+}
 
 /* GRID-LAYOUT */
 
@@ -400,6 +407,18 @@ footer {
         grid-column: span 1;
     }
 
+    #carousel {
+        height: 400px;
+    }
+
+    .slide-image {
+        height: 400px;
+    }
+
+    #carousel h1 {
+        padding-top: 125px;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -463,5 +482,16 @@ footer {
         grid-column: span 1;
     }
 
-}
+    #carousel {
+        height: 350px;
+    }
+
+    .slide-image {
+        height: 350px;
+    }
+
+    #carousel h1 {
+        padding-top: 100px;
+    }
+    }
 /* ------ */
