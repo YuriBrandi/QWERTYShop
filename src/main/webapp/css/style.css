@@ -297,6 +297,10 @@ footer {
     font-size: 45px;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 /* GRID-LAYOUT */
 
 .container {
