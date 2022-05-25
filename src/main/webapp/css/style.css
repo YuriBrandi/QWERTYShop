@@ -4,6 +4,7 @@
 
 html {
     background: #f6f6f6;
+    scroll-behavior: smooth;
 }
 
 /* COLOR-PALETTE */
