@@ -2,7 +2,8 @@ $(document).ready(function(){
     //navbar
     $('nav .toggle').click(function(){
         $('nav .menu').toggleClass('active');
-        document.body.classList.toggle("no-scroll")
+        // document.body.classList.toggle("no-scroll")
+        $('body').toggleClass('no-scroll');
     });
 
     //carousel
