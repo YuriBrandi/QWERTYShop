@@ -152,7 +152,7 @@ ul li{
     text-decoration: none;
     color: #262626;
     font-size: 1.3rem;
-    margin: 0.4rem 0.7rem 0 2.75rem;
+    margin: 0.6rem 0.7rem 0 2.75rem;
 
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -186,14 +186,89 @@ ul li{
     font-size: 0.7rem;
 }
 
+/*
+    FORM Login & Registrazione
+ */
+
+.form-container {
+    margin-top: 10rem;
+}
+.input-txt_fld {
+    font-size: 1.1rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: none;
+    width: 30%;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.input-txt_fld[name='password']{
+    width: 28%;
+}
+
+.input-txt_fld:hover {
+    border: .15rem solid #262626;
+}
+
+.show_hide_psw {
+    cursor: pointer;
+}
+
+#form_toggle {
+    text-decoration: underline;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#form_toggle:hover {
+    color: #FFCB73;
+}
+
+.form-submit {
+    background-color: #262626;
+
+    font-size: 1.2rem;
+    padding: .5rem;
+
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: .5rem;
+    width: auto;
+    height: auto;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.form-submit:hover {
+    background-color: #FFCB73;
+    color: #262626;
+}
+/*
+    SEARCH BAR
+
+ */
+
+
 .search-bar{
     margin-top: 8rem;
     margin-bottom: 1rem;
 }
+
 .search-bar > form > div {
     width: 50%;
     margin: 0 auto;
     text-align: center;
+    display: block;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
 
 .search-txt_box {
@@ -209,7 +284,6 @@ ul li{
 }
 
 .search-txt_box:hover {
-
     border: .15rem solid #262626;
 }
 
@@ -217,12 +291,11 @@ ul li{
     background-color: #262626;
 
     font-size: .9rem;
+    padding: 0.5rem;
     border: none;
     color: white;
     cursor: pointer;
     border-radius: 1rem;
-    width: 2rem;
-    height: 2rem;
 
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -234,6 +307,7 @@ ul li{
     color: #262626;
 
 }
+
 
 footer {
     /*position: absolute;
@@ -558,5 +632,32 @@ footer {
     #carousel h1 {
         padding-top: 100px;
     }
+
+    /*
+        Per i display molto piccoli la larghezza
+        in percentuale degli input fields diventa
+        eccessivamente piccola
+     */
+
+    #imgLogo {
+        width: 6rem;
+    }
+
+    #shop_title {
+        font-size: 1.4rem;
+    }
+
+    .search-bar > form > div {
+        width: 100%;
+    }
+
+    .input-txt_fld {
+        width: 80%;
+    }
+
+    .input-txt_fld[name='password'] {
+        width: 70%;
+    }
+
     }
 /* ------ */
