@@ -5,7 +5,8 @@
   Time: 22:00
   To change this template use File | Settings | File Templates.
 --%>
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

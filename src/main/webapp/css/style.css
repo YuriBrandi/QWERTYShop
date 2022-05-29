@@ -152,7 +152,7 @@ ul li{
     text-decoration: none;
     color: #262626;
     font-size: 1.3rem;
-    margin: 0.6rem 0.7rem 0 2.75rem;
+    margin: 0.4rem 0.7rem 0 2.75rem;
 
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
@@ -291,11 +291,13 @@ ul li{
     background-color: #262626;
 
     font-size: .9rem;
-    padding: 0.5rem;
+   /* padding: 0.5rem;*/
     border: none;
     color: white;
     cursor: pointer;
-    border-radius: 1rem;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
 
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;

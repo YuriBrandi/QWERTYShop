@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="./WEB-INF/header.jsp"%>
-<!DOCTYPE html>
+
 <html>
 <head>
     <title>Homepage</title>
@@ -77,6 +77,7 @@
     <!-- SCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b2ea133689.js" crossorigin="anonymous"></script>
+    <script src="js/carousel.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
