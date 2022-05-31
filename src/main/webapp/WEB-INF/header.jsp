@@ -25,6 +25,7 @@
     <div class="menu">
         <!-- Sotto certe dimensioni, il carrello e l'account si spostano qui dentro -->
         <ul class = "nav-menu">
+            <li><a href="./"><b>Home</b></a></li>
             <li class="small-screen-option"><a href="account.jsp"><b>Login</b></a></li>
             <li class="small-screen-option"><a href="#"><b>Carrello (0)</b></a></li>
             <li><a href="#"><b>Tastiere</b></a></li>
