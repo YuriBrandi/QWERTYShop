@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="./WEB-INF/header.jsp"%>
+<%@ include file="WEB-INF/header.html"%>
 
 <html>
 <head>
@@ -114,7 +114,7 @@
 
     <br>
     <footer>
-        <p id="credits">© Della Rocca & Brandi. Tutti i diritti riservati.</p>
+        <p id="credits">&copy; Della Rocca & Brandi. Tutti i diritti riservati.</p>
     </footer>
 
     <!-- SCRIPT -->
