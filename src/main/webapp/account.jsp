@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="./WEB-INF/header.jsp"%>
+<%@ include file="WEB-INF/header.html"%>
 
 <html>
 <head>
@@ -18,14 +18,15 @@
         <div class="center">
             <div id="reg_form">
                 <h3>Registrazione</h3>
-                <form action="#" method="post">
-                    <input class="input-txt_fld" type="text" placeholder="Nome" name="nome">
+                <!-- //if validate_form() = false -> action non chiamato -->
+                <form name="registrazione" onsubmit="return validate_form()" action="prova.xml" method="post">
+                    <input class="input-txt_fld" type="text" placeholder="Nome" name="nome" required>
                     <br><br>
-                    <input class="input-txt_fld" type="text" placeholder="Cognome" name="cognome">
+                    <input class="input-txt_fld" type="text" placeholder="Cognome" name="cognome" required>
                     <br><br>
-                    <input class="input-txt_fld" type="text" placeholder="E-mail" name="email">
+                    <input class="input-txt_fld" type="text" placeholder="E-mail" name="email" required>
                     <br><br>
-                    <input class="input-txt_fld" type="password" placeholder="Password" name="password">
+                    <input class="input-txt_fld" type="password" placeholder="Password" name="password" required>
 
                     <a class="show_hide_psw">
                         <i class="fa-solid fa-eye-slash"></i>
@@ -34,15 +35,18 @@
                     <br><br>
                     <button class="form-submit" type="submit">Registrati</button>
                 </form>
+
+                <p id="err_msg"></p>
+
             </div>
 
             <div id="log_form" hidden>
                 <h3>Accesso</h3>
                 <form action="#" method="post">
 
-                    <input class="input-txt_fld" type="text" placeholder="E-mail" name="email">
+                    <input class="input-txt_fld" type="text" placeholder="E-mail" name="email" required>
                     <br><br>
-                    <input class="input-txt_fld" type="password" placeholder="Password" name="password">
+                    <input class="input-txt_fld" type="password" placeholder="Password" name="password" required>
 
                     <a class="show_hide_psw">
                         <i class="fa-solid fa-eye-slash"></i>
@@ -63,11 +67,14 @@
 
     <br>
     <footer>
-        <p id="credits">© Della Rocca & Brandi. Tutti i diritti riservati.</p>
+        <p id="credits">&copy; Della Rocca & Brandi. Tutti i diritti riservati.</p>
     </footer>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b2ea133689.js" crossorigin="anonymous"></script>
     <script src="js/account_script.js"></script>
-    <script src="js/script.js"></script>
+
+
 </body>
 </html>
