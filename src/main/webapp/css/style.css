@@ -250,6 +250,10 @@ ul li{
     background-color: #FFCB73;
     color: #262626;
 }
+
+#err_msg {
+    color: darkred;
+}
 /*
     SEARCH BAR
 
@@ -399,6 +403,7 @@ footer {
     border-radius: 20px;
     box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
     transition: .7s;
+    cursor: pointer;
 }
 
 .card:hover {
