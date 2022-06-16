@@ -19,7 +19,7 @@
             <div id="reg_form">
                 <h3>Registrazione</h3>
                 <!-- //if validate_form() = false -> action non chiamato -->
-                <form name="registrazione" onsubmit="return validate_form()" action="prova.xml" method="post">
+                <form name="registrazione" onsubmit="return validate_form()" action="create-user" method="post">
                     <input class="input-txt_fld" type="text" placeholder="Nome" name="nome" required>
                     <br><br>
                     <input class="input-txt_fld" type="text" placeholder="Cognome" name="cognome" required>
