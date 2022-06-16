@@ -38,22 +38,20 @@ function validate_form(){
     var password = document.forms["registrazione"]["password"].value;
     var mail = document.forms["registrazione"]["email"].value;
 
-
-    if(!validate_pass(password))
-        return false;
+    var flag = validate_pass(password)
 
 
     //var mailRGEX = /^[A-Z0-9-.]+@[a-z][A-Z0-9.]*[.][A-Z]+$/i;
-    var mailRGEX = /^[a-z0-9-.]+@([a-z0-9]+[.])+[a-z]+$/i
-    //punto senza graffe = qualsiasi carattere
-    //accetta domini come ciao.dom.it
+    var mailRGEX = /^[a-z0-9!#$%&'*+=?^_`{|}~\/\-]+([.][a-z0-9!#$%&'*+=?^_`{|}~\/\-]+)*@([a-z0-9-]+[.])+[a-z]+$/i
+    //Bastato sulle regole definite da RFC3696: https://www.rfc-editor.org/rfc/rfc5322 (Paragrafo 3)
+    // ES: !def!xyz%abc@example.com è un indirizzo valido
 
     if(!mailRGEX.test(mail)){
         document.getElementById("err_msg").innerText += "Formato e-mail invalido.";
-        return false;
+        flag = false;
     }
 
-    return true;
+    return flag;
 
 }
 
@@ -68,7 +66,7 @@ function validate_pass(password){
     var passRGEXMaiusc = /[A-Z]/;
     var passRGEXMinusc = /[a-z]/;
     var passRGEXNumb = /[0-9]/;
-    var passRGEXSpecial = /[!@#$%^&*?€+=]/;
+    var passRGEXSpecial = /[!#$%&'*/=?^_+`{|}~€-]/;
 
     if(password.length < 8){
         err_msg.innerHTML += "La password deve contenere almeno 8 caratteri.<br>";
@@ -91,7 +89,7 @@ function validate_pass(password){
     }
 
     if(!passRGEXSpecial.test(password)){
-        err_msg.innerHTML += "La password deve contenere almeno un carattere speciale.<br>";
+        err_msg.innerHTML += "La password deve contenere almeno un carattere speciale (Es: !, #, €, ? ...).<br>";
         flag = false;
     }
 
