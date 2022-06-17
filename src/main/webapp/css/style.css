@@ -291,7 +291,7 @@ ul li{
     border: .15rem solid #262626;
 }
 
-.search-btn {
+.search-btn, .remove-btn, .add-btn, .delete-btn {
     background-color: #262626;
 
     font-size: .9rem;
@@ -308,11 +308,61 @@ ul li{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-.search-btn:hover {
+.search-btn:hover,  .remove-btn:hover, .add-btn:hover, .delete-btn:hover {
     background-color: #FFCB73;
     color: #262626;
 
 }
+
+/* TABLE */
+
+.table {
+    text-align: center;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.table tr:first-child th:first-child {
+    border-radius: 0.8rem 0 0 0;
+}
+
+.table tr:first-child th:last-child {
+    border-radius: 0 0.8rem 0 0;
+}
+
+.table tr:last-child {
+    border-bottom: 1.5px solid black;
+    border-radius: 0 0 0.8rem 0.8rem;
+}
+
+.table th {
+    background: #f6f6f6;
+    color: black;
+    padding: 10px 20px;
+    border-bottom: 2px solid black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.table td {
+    padding: 20px 20px;
+}
+
+.table tr:nth-of-type(odd) {
+    background-color: #f6f6f6;
+}
+
+.table tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.table td .input-txt_fld {
+    text-align: center;
+}
+
+/* ----- */
 
 
 footer {
@@ -379,12 +429,20 @@ footer {
     margin-right: auto;
 }
 
+.center-margin {
+    margin: 0 auto;
+}
+
 .big-icon {
     font-size: 45px;
 }
 
 .no-scroll {
     overflow: hidden;
+}
+
+.margin-from-nav {
+    margin-top: 8rem;
 }
 
 /* CARD */

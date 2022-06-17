@@ -74,7 +74,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b2ea133689.js" crossorigin="anonymous"></script>
     <script src="js/account_script.js"></script>
-
+    <script src="js/script.js"></script>
 
 </body>
 </html>
