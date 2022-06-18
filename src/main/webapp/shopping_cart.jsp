@@ -46,7 +46,7 @@
                     <button class="remove-btn">
                         <i class="fa-solid fa-minus"></i>
                     </button>
-                    <input type="text" class="input-txt_fld quantity-field" value = "0" readonly>
+                    <input type="text" class="input-txt_fld quantity-field" value = "1" readonly>
                     <button class="add-btn">
                         <i class="fa-solid fa-plus"></i>
                     </button>
@@ -61,6 +61,14 @@
         </table>
     </div>
 
+    <div class="container">
+        <div class="center">
+            <h2>Totale: 1000€</h2>
+            <button class="form-submit"><i class="fa-solid fa-cart-arrow-down"></i>&nbsp; Ordina</button>
+            <button class="form-submit"><i class="fa-solid fa-eraser"></i>&nbsp; Svuota</button>
+        </div>
+    </div>
+
     <footer>
       <p id="credits">&copy; Della Rocca & Brandi. Tutti i diritti riservati.</p>
     </footer>
@@ -68,5 +76,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b2ea133689.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
+    <script src="js/cart-script.js"></script>
 </body>
 </html>
