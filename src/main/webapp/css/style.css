@@ -213,6 +213,8 @@ ul li{
     border: .15rem solid #262626;
 }
 
+.input-txt_fld[readonly]:hover{border: none}
+
 .show_hide_psw {
     cursor: pointer;
 }

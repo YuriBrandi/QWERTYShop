@@ -64,8 +64,8 @@
     <div class="container">
         <div class="center">
             <h2>Totale: 1000€</h2>
-            <button class="form-submit"><i class="fa-solid fa-cart-arrow-down"></i>&nbsp; Ordina</button>
-            <button class="form-submit"><i class="fa-solid fa-eraser"></i>&nbsp; Svuota</button>
+            <button class="form-submit"><i class="fa-solid fa-eraser"></i>&nbsp; Svuota Carrello</button>
+            <button class="form-submit"><i class="fa-solid fa-cart-arrow-down"></i>&nbsp; Crea Ordine</button>
         </div>
     </div>
 
