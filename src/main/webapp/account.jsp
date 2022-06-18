@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ include file="WEB-INF/header.html"%>
+<%@ include file="WEB-INF/header.jsp"%>
 
 <html>
 <head>
@@ -17,7 +17,17 @@
     <div class="form-container">
         <div class="center">
             <div id="reg_form">
-                <h3>Registrazione</h3>
+                <%
+                    if(request.getAttribute("isRedirected") != null){
+                        Boolean isRedir = (Boolean) request.getAttribute("isRedirected");
+                        if(isRedir){%>
+                           <h3 id="err_msg">Questa mail è già registrata!</h3>
+                <%}
+                    }%>
+
+
+                    <h3>Registrazione</h3>
+
                 <!-- //if validate_form() = false -> action non chiamato -->
                 <form name="registrazione" onsubmit="return validate_form()" action="create-user" method="post">
                     <input class="input-txt_fld" type="text" placeholder="Nome" name="nome" required>

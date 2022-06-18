@@ -1,3 +1,6 @@
+<%@ page import="Model.Utente" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -19,7 +22,19 @@
         <!-- Sotto certe dimensioni, il carrello e l'account si spostano qui dentro -->
         <ul class = "nav-menu">
             <li><a href="./"><b>Home</b></a></li>
-            <li class="small-screen-option"><a href="account.jsp"><b>Login</b></a></li>
+
+            <li class="small-screen-option"><a href="account.jsp"><b>
+                <%
+                    Utente u = null;
+                    if(session.getAttribute("utente") != null){
+                        u = (Utente) session.getAttribute("utente");
+                %>
+                    <%= u.getNome() %>
+                <%}
+                    else {%>
+                        Login
+                    <%}%>
+            </b></a></li>
             <li class="small-screen-option"><a href="shopping_cart.jsp"><b>Carrello (0)</b></a></li>
             <li><a href="#"><b>Tastiere</b></a></li>
             <li><a href="#"><b>Switch</b></a></li>
@@ -39,7 +54,16 @@
         <img src="img/keycap_icon.svg" alt="carrello">
     </div>
     <div class="shop-button">
-        <a href="account.jsp"><i class="fa-solid fa-user"></i></a>
+        <a href="account.jsp">
+            <%
+                if(u != null){
+            %>
+                <b><%=u.getNome().charAt(0)%></b>
+                <%}
+                else {%>
+                <i class="fa-solid fa-user"></i>
+                <%}%>
+        </a>
         <a href="shopping_cart.jsp"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
     <div class="shop-button-overlay">

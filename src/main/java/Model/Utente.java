@@ -41,7 +41,7 @@ public class Utente {
         this.hashed_password = hashed_password;
     }
 
-    public void hashPassword(String password) {
+    public void set_and_HashPassword(String password) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-1");
             digest.reset();

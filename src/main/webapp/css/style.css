@@ -145,7 +145,6 @@ ul li{
     top: 2rem;
     right: 2rem;
     display: flex;
-
 }
 
 .shop-button a{
@@ -156,8 +155,14 @@ ul li{
 
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
+
+    text-align: center;
 }
 
+.shop-button a b{
+    margin-right: .1rem;
+    font-size: 1.5rem;
+}
 .shop-button a:hover{
     color: #FFCB73;
 }
