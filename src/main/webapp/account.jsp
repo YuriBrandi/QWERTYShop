@@ -8,23 +8,35 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="WEB-INF/header.jsp"%>
 
+    <%
+        //Viene prelevato in header.jsp
+        if(u != null)
+            if(u.isAdmin())
+               response.sendRedirect("admin_page.jsp");
+            else
+                response.sendRedirect("user_page.jsp");
+    %>
 <html>
 <head>
     <title>Registrati</title>
 </head>
 <body>
-
     <div class="form-container">
         <div class="center">
-            <div id="reg_form">
                 <%
-                    if (session.getAttribute("utente") != null) {
-                        response.sendRedirect("user-page.jsp");
-                    }
+                    if(request.getParameter("login") != null){
+                %>
 
-                    if(request.getAttribute("isRedirected") != null){
-                        Boolean isRedir = (Boolean) request.getAttribute("isRedirected");
-                        if(isRedir){%>
+            <div id="reg_form" hidden>
+                    <%}
+                    else{%>
+            <div id="reg_form">
+                    <%}%>
+
+
+                <%
+                    if(request.getAttribute("isDuplicated") != null){
+                        if((Boolean) request.getAttribute("isDuplicated")){%>
                            <h3 id="err_msg">Questa mail è già registrata!</h3>
                 <%}
                     }%>
@@ -33,7 +45,7 @@
                     <h3>Registrazione</h3>
 
                 <!-- //if validate_form() = false -> action non chiamato -->
-                <form name="registrazione" onsubmit="return validate_form()" action="create-user" method="post">
+                <form name="registrazione"  action="create-user" method="post"><!--onsubmit="return validate_form()"-->
                     <input class="input-txt_fld" type="text" placeholder="Nome" name="nome" required>
                     <br><br>
                     <input class="input-txt_fld" type="text" placeholder="Cognome" name="cognome" required>
@@ -50,11 +62,30 @@
                     <button class="form-submit" type="submit">Registrati</button>
                 </form>
 
-                <p id="err_msg"></p>
+                <p id="err_msg">
+                        ${error_message}
+                </p>
 
             </div>
 
-            <div id="log_form" hidden>
+
+                <%
+                    if(request.getParameter("login") != null){
+                %>
+
+                <div id="log_form">
+                <%}
+                    else{%>
+                <div id="log_form" hidden>
+                <%}%>
+
+                    <%
+                        if(request.getAttribute("isAccessDenied") != null){
+                            if((Boolean) request.getAttribute("isAccessDenied")){%>
+                    <h3 id="err_msg">I dati inseriti non corrispondono. Riprova.</h3>
+                    <%}
+                    }%>
+
                 <h3>Accesso</h3>
                 <form action="login-user" method="post">
 

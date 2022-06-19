@@ -79,7 +79,7 @@ function validate_pass(password){
     }
 
     if(!passRGEXMinusc.test(password)){
-        err_msg.innerHTML += "La password deve contenere delle minuscole.<br>";
+        err_msg.innerHTML += "La password deve contenere almeno una minuscola.<br>";
         flag = false;
     }
 

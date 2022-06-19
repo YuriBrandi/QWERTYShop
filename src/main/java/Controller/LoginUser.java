@@ -11,34 +11,23 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/login-user")
-
 public class LoginUser extends HttpServlet {
-
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String email = request.getParameter("email");
-        String passwd = request.getParameter("password");
-        System.out.println(email);
-        System.out.println(passwd);
         String addr;
-        Utente user = new Utente();
-        UtenteDAO u = new UtenteDAO();
+        UtenteDAO u_DAO = new UtenteDAO();
+        Utente u = u_DAO.doRetrieveByEmailPassword(request.getParameter("email"), request.getParameter("password"));
 
-        user = u.doRetrieveByEmailPassword(email, passwd);
-
-        if (user == null) {
-            addr = "account.jsp";
-            System.out.println("errore");
-            // errore, utente non trovato
+        if(u == null){
+            addr = "account.jsp?login=1";
+            request.setAttribute("isAccessDenied", new Boolean(true));
         }
-        else {
-            System.out.println("successo");
-            addr = "user-page.jsp";
-            request.getSession().setAttribute("utente", user);
+        else{
+            request.getSession().setAttribute("utente", u);
+            addr = "index.jsp";
         }
 
         request.getRequestDispatcher(addr).forward(request, response);
-
     }
 }
