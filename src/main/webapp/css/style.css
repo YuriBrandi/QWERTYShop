@@ -161,6 +161,8 @@ ul li{
 
 .shop-button a b{
     margin-right: .1rem;
+    top: -.2rem;
+    position: relative;
     font-size: 1.5rem;
 }
 .shop-button a:hover{
