@@ -6,7 +6,7 @@ public class UtenteDAO {
     public Utente doRetrieveByEmailPassword(String email, String password) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps =
-                    con.prepareStatement("SELECT email, nome, cognome, passwd, isAdmin FROM Utente WHERE username = ? AND password = SHA1(?)");
+                    con.prepareStatement("SELECT email, nome, cognome, passwd, isAdmin FROM Utente WHERE email = ? AND passwd = SHA1(?)");
             ps.setString(1, email);
             ps.setString(2, password);
 

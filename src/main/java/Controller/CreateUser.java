@@ -30,7 +30,7 @@ public class CreateUser extends HttpServlet {
         else{
             u_DAO.doSave(u);
             request.getSession().setAttribute("utente", u);
-            addr = "index.jsp";
+            addr = "user-page.jsp";
         }
 
         request.getRequestDispatcher(addr).forward(request, response);

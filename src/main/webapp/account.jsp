@@ -18,6 +18,10 @@
         <div class="center">
             <div id="reg_form">
                 <%
+                    if (session.getAttribute("utente") != null) {
+                        response.sendRedirect("user-page.jsp");
+                    }
+
                     if(request.getAttribute("isRedirected") != null){
                         Boolean isRedir = (Boolean) request.getAttribute("isRedirected");
                         if(isRedir){%>
@@ -52,7 +56,7 @@
 
             <div id="log_form" hidden>
                 <h3>Accesso</h3>
-                <form action="#" method="post">
+                <form action="login-user" method="post">
 
                     <input class="input-txt_fld" type="text" placeholder="E-mail" name="email" required>
                     <br><br>
