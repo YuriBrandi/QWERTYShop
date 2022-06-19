@@ -27,7 +27,7 @@
                     <button class="remove-btn">
                         <i class="fa-solid fa-minus"></i>
                     </button>
-                    <input type="text" class="input-txt_fld quantity-field" value = "1" readonly>
+                    <input type="text" class="input-txt_fld quantity_fld" value = "1" readonly>
                     <button class="add-btn">
                         <i class="fa-solid fa-plus"></i>
                     </button>
@@ -46,7 +46,7 @@
                     <button class="remove-btn">
                         <i class="fa-solid fa-minus"></i>
                     </button>
-                    <input type="text" class="input-txt_fld quantity-field" value = "1" readonly>
+                    <input type="text" class="input-txt_fld quantity_fld" value = "1" readonly>
                     <button class="add-btn">
                         <i class="fa-solid fa-plus"></i>
                     </button>

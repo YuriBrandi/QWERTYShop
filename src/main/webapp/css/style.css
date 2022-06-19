@@ -365,9 +365,15 @@ ul li{
     background-color: #f3f3f3;
 }
 
-.table td .input-txt_fld {
+.quantity_fld {
     text-align: center;
-    width: 50px;
+    width: 3rem;
+}
+
+
+.add_fld {
+    text-align: center;
+    width: 80%
 }
 
 /* ----- */
