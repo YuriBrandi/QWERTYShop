@@ -474,10 +474,6 @@ footer {
     max-height: 250px;
 }
 
-.card del {
-    color: darkred;
-}
-
 .card {
     max-width: 300px;
     background-color: #f6f6f6;

@@ -32,4 +32,22 @@ public class IndirizzoDAO {
 
     }
 
+    public int doDeleteAddressByEmail(String email, String address) {
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("DELETE FROM Indirizzo WHERE email = ? AND indirizzo = ?");
+            ps.setString(1, email);
+            ps.setString(2, address);
+
+            int result = ps.executeUpdate();
+
+            ps.close();
+
+            return result;
+
+        } catch (SQLException e) {
+            return -1;
+        }
+    }
+
 }

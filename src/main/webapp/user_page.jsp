@@ -24,16 +24,15 @@
         <h3>e-mail: <span class="email">${utente.email}</span></h3>
         <br>
 
+        <div>
+            <input type="text" class="input-txt_fld add_fld" placeholder="Aggiugi indirizzo">&nbsp;&nbsp;
+            <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <br><br>
         <table class="table">
             <tr>
                 <th>I miei indirizzi:</th>
-
-                <th>
-                    <button class="add-btn">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </th>
-
+                <th>Azioni</th>
             </tr>
         </table>
     </div>
