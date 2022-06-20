@@ -14,9 +14,15 @@
                 <button class="search-btn" type="submit">
                     <i class="fa-solid fa-search"></i>
                 </button>
-            </div>
 
+            </div>
         </form>
+        <form action="logout-user">
+            <button class="form-submit" type="submit">
+                Test logout
+            </button>
+        </form>
+
     </div>
 
 
@@ -68,7 +74,7 @@
 
     <div class="container">
         <h1 class="center"><b>GLI ULTIMI ARRIVI</b></h1>
-        <div class="row center">
+        <div class="products row center">    <!--Soluzione momentanea -->
             <div class="col-lg-3 col-sm-6 col-xs-12 center-div">
                 <div class="card">
                     <img src="https://www.w3schools.com/w3css/img_forest.jpg">
@@ -96,16 +102,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6 col-xs-12 center-div">
-                <div class="card">
-                    <img src="https://www.w3schools.com/w3css/img_forest.jpg">
-                    <div class="card-body">
-                        <h3>Prodotto 1</h3>
-                        <p>214€</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 
@@ -120,7 +116,7 @@
     <!-- SCRIPT -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b2ea133689.js" crossorigin="anonymous"></script>
-    <script src="js/carousel.js"></script>
+    <script src="js/homepage_script.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
