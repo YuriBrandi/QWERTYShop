@@ -375,7 +375,7 @@ ul li{
 
 .add_fld {
     text-align: center;
-    width: 80%
+    width: 40%
 }
 
 /* ----- */
@@ -472,6 +472,10 @@ footer {
     object-fit: cover;
     border-radius: 12px;
     max-height: 250px;
+}
+
+.card del {
+    color: darkred;
 }
 
 .card {
