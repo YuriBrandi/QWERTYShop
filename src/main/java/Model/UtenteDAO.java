@@ -11,7 +11,6 @@ public class UtenteDAO {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
 
-            ps.close();
 
             if (rs.next()) {
                 Utente u = new Utente();
@@ -20,9 +19,12 @@ public class UtenteDAO {
                 u.setCognome(rs.getString(3));
                 u.setHashed_password(rs.getString(4));
                 u.setAdmin(rs.getBoolean(5));
+
+                ps.close();
                 return u;
             }
 
+            ps.close();
             return null;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -37,12 +39,13 @@ public class UtenteDAO {
 
             ResultSet rs = ps.executeQuery();
 
-            ps.close();
-
             if (rs.next()) {
+                ps.close();
                 return true;
             }
+            ps.close();
             return false;
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
