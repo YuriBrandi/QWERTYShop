@@ -11,6 +11,8 @@ public class UtenteDAO {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
 
+            ps.close();
+
             if (rs.next()) {
                 Utente u = new Utente();
                 u.setEmail(rs.getString(1));
@@ -20,7 +22,7 @@ public class UtenteDAO {
                 u.setAdmin(rs.getBoolean(5));
                 return u;
             }
-            ps.close();
+
             return null;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -35,10 +37,11 @@ public class UtenteDAO {
 
             ResultSet rs = ps.executeQuery();
 
+            ps.close();
+
             if (rs.next()) {
                 return true;
             }
-            ps.close();
             return false;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -58,8 +61,10 @@ public class UtenteDAO {
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
             }
-            u.setAdmin(false);
             ps.close();
+
+            u.setAdmin(false);
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

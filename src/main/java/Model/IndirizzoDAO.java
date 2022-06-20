@@ -17,13 +17,15 @@ public class IndirizzoDAO {
             ResultSet result = ps.executeQuery();
             ArrayList<Indirizzo> list = new ArrayList<>();
 
+            ps.close();
+
             while (result.next()) {
                 Indirizzo indirizzo = new Indirizzo();
                 indirizzo.setEmail(result.getString(1));
                 indirizzo.setIndirizzo(result.getString(2));
                 list.add(indirizzo);
             }
-            ps.close();
+
             return list;
         } catch (SQLException e) {
             return null;
