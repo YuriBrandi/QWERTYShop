@@ -9,7 +9,6 @@ public class UtenteDAO {
                     con.prepareStatement("SELECT email, nome, cognome, passwd, isAdmin FROM Utente WHERE email = ? AND passwd = SHA1(?)");
             ps.setString(1, email);
             ps.setString(2, password);
-
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -21,6 +20,7 @@ public class UtenteDAO {
                 u.setAdmin(rs.getBoolean(5));
                 return u;
             }
+            ps.close();
             return null;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -38,6 +38,7 @@ public class UtenteDAO {
             if (rs.next()) {
                 return true;
             }
+            ps.close();
             return false;
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -57,9 +58,8 @@ public class UtenteDAO {
             if (ps.executeUpdate() != 1) {
                 throw new RuntimeException("INSERT error.");
             }
-
             u.setAdmin(false);
-
+            ps.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
