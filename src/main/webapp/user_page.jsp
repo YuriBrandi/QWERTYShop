@@ -21,7 +21,7 @@
     <div class="container margin-from-nav center">
         <h2>Benvenuto, ${utente.nome} ${utente.cognome}</h2>
 
-        <h3>e-mail: ${utente.email}</h3>
+        <h3>e-mail: <span class="email">${utente.email}</span></h3>
         <br>
 
         <table class="table">
@@ -34,16 +34,6 @@
                     </button>
                 </th>
 
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" class="input-txt_fld add_fld" value = "Viale dei vecchi cazzi 16, Salerno 344534">
-                </td>
-                <td>
-                    <button class="delete-btn">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </td>
             </tr>
         </table>
     </div>
