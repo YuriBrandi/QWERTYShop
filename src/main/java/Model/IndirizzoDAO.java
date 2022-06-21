@@ -39,6 +39,7 @@ public class IndirizzoDAO {
             ps.setString(1, email);
             ps.setString(2, address);
 
+
             int result = ps.executeUpdate();
 
             ps.close();
@@ -47,6 +48,24 @@ public class IndirizzoDAO {
 
         } catch (SQLException e) {
             return -1;
+        }
+    }
+
+    public void doSaveAddress(String email, String address) {
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO Indirizzo VALUES(?, ?)");
+            ps.setString(1, email);
+            ps.setString(2, address);
+
+            if (ps.executeUpdate() != 1) {
+                throw new RuntimeException("INSERT error.");
+            }
+            ps.close();
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 

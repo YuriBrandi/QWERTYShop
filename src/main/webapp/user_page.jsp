@@ -27,6 +27,7 @@
         <div>
             <input type="text" class="input-txt_fld add_fld" placeholder="Aggiugi indirizzo">&nbsp;&nbsp;
             <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+            <p id="err_msg"></p>
         </div>
         <br><br>
         <table class="table">
