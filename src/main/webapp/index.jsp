@@ -11,16 +11,10 @@
         <form>
             <div>
                 <input class="search-txt_box" type="text" placeholder="Cerca...">
-                <button class="search-btn" type="submit">
+                <button class="search-btn circle-btn" type="submit">
                     <i class="fa-solid fa-search"></i>
                 </button>
-
             </div>
-        </form>
-        <form action="logout-user">
-            <button class="form-submit" type="submit">
-                Test logout
-            </button>
         </form>
 
     </div>
