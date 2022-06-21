@@ -24,17 +24,17 @@
             <tr>
                 <td>Nome 1</td>
                 <td>
-                    <button class="remove-btn">
+                    <button class="remove-btn circle-btn">
                         <i class="fa-solid fa-minus"></i>
                     </button>
                     <input type="text" class="input-txt_fld quantity_fld" value = "1" readonly>
-                    <button class="add-btn">
+                    <button class="add-btn circle-btn">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                 </td>
                 <td>5€</td>
                 <td>
-                    <button class="delete-btn">
+                    <button class="delete-btn circle-btn">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </td>
@@ -43,17 +43,17 @@
             <tr>
                 <td>Nome 2</td>
                 <td>
-                    <button class="remove-btn">
+                    <button class="remove-btn circle-btn">
                         <i class="fa-solid fa-minus"></i>
                     </button>
                     <input type="text" class="input-txt_fld quantity_fld" value = "1" readonly>
-                    <button class="add-btn">
+                    <button class="add-btn circle-btn">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                 </td>
                 <td>5€</td>
                 <td>
-                    <button class="delete-btn">
+                    <button class="delete-btn circle-btn">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </td>
