@@ -19,14 +19,19 @@
 <body>
 
     <div class="container margin-from-nav center">
-        <h2>Benvenuto, ${utente.nome} ${utente.cognome}</h2>
+        <h2>
+            <form action="logout-user">
+                Benvenuto, ${utente.nome} ${utente.cognome}
+                <button class="circle-btn" type="submit"><i class="fa-solid fa-sign-out"></i></button>
+            </form>
+        </h2>
 
         <h3>e-mail: <span class="email">${utente.email}</span></h3>
         <br>
 
         <div>
             <input type="text" class="input-txt_fld add_fld" placeholder="Aggiugi indirizzo">&nbsp;&nbsp;
-            <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+            <button class="add-btn circle-btn"><i class="fa-solid fa-plus"></i></button>
             <p id="err_msg"></p>
         </div>
         <br><br>
@@ -40,6 +45,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b2ea133689.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
-    <script src="js/address_page.js"></script>
+    <script src="js/userpage_script.js"></script>
 </body>
 </html>
