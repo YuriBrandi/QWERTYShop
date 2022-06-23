@@ -19,8 +19,15 @@ $(document).ready(function(){
                     var lenght = Object.keys(data).length;
                     for (var i = 0; i < lenght; i++) {
                         $('.table').append(
-                            "<tr><td><input type=\"text\" class=\"input-txt_fld add_fld\" value='" + data[i].indirizzo + "'></td>" +
-                            "<td><button class=\"delete-btn circle-btn\"><i class=\"fa-solid fa-trash\"></i></button></td></tr>");
+                            "<tr>" +
+                            "   <td>" +
+                            "       <input type=\"text\" class=\"input-txt_fld add_fld\" value='" + data[i].indirizzo + "'></td>" +
+                            "       <input type=\"hidden\" class=\"hidden_fld\" value='" + data[i].indirizzo + "'> " +
+                            "   <td>" +
+                            "       <button class=\"delete-btn circle-btn\"><i class=\"fa-solid fa-trash\"></i></button> &nbsp;&nbsp;" +
+                            "       <button class=\"save-btn circle-btn\"><i class=\"fa-solid fa-floppy-disk\"></i></button>" +
+                            "   </td>" +
+                            "</tr>");
                     }
                 }
 
@@ -79,6 +86,26 @@ $(document).ready(function(){
           },
           url: "remove-address",
           complete: function () {
+              cleanup_table();
+              load_addresses();
+          }
+      });
+
+  });
+
+  $('.table').on('click', '.save-btn', function () {
+      var addressToUpdate = $(this).closest('tr').find('.input-txt_fld').val();
+      var addressBefore = $(this).closest('tr').find('.hidden_fld').val();
+
+      $.ajax({
+          type: "GET",
+          data: {
+              email: emailString,
+              newAddress: addressToUpdate,
+              oldAddress: addressBefore
+          },
+          url: "update-address",
+          complete: function (data) {
               cleanup_table();
               load_addresses();
           }

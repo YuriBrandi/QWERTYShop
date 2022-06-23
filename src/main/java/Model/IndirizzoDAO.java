@@ -63,10 +63,29 @@ public class IndirizzoDAO {
             }
             ps.close();
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void doUpdateAddress(String email, String oldAddress, String newAddress) {
+
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("UPDATE Indirizzo SET indirizzo = ? WHERE email = ? AND indirizzo = ?");
+            ps.setString(1, newAddress);
+            ps.setString(2, email);
+            ps.setString(3, oldAddress);
+
+            if (ps.executeUpdate() != 1) {
+                throw new RuntimeException("INSERT error.");
+            }
+            ps.close();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
 
 }
