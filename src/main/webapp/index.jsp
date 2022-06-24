@@ -66,7 +66,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container latest-products">
         <h1 class="center"><b>GLI ULTIMI ARRIVI</b></h1>
         <div class="products row center">    <!--Soluzione momentanea -->
             <div class="col-lg-3 col-sm-6 col-xs-12 center-div">

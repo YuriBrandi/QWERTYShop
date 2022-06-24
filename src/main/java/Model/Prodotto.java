@@ -134,4 +134,26 @@ public class Prodotto {
     public void setKeyboardSize(byte keyboardSize) {
         this.keyboardSize = keyboardSize;
     }
+
+    @Override
+    public String toString() {
+        return "Prodotto{" +
+                "idProdotto=" + idProdotto +
+                ", pezziDisponibili=" + pezziDisponibili +
+                ", nome='" + nome + '\'' +
+                ", marca='" + marca + '\'' +
+                ", descrizione='" + descrizione + '\'' +
+                ", pathImg='" + pathImg + '\'' +
+                ", categoria='" + categoria + '\'' +
+                ", keyboardLayout='" + keyboardLayout + '\'' +
+                ", tipoSwitch='" + tipoSwitch + '\'' +
+                ", keycapMaterial='" + keycapMaterial + '\'' +
+                ", keycapProfile='" + keycapProfile + '\'' +
+                ", prezzo=" + prezzo +
+                ", percSconto=" + percSconto +
+                ", keyboardSize=" + keyboardSize +
+                ", RGB=" + RGB +
+                ", hotSwappable=" + hotSwappable +
+                '}';
+    }
 }

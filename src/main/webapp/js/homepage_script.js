@@ -31,31 +31,42 @@ $(document).ready(function(){
 
             for (var i = 0; i < lenght; i++) {
                 if(data[i].percSconto == 0)
-                        $('.products').append("<div class=\"col-lg-3 col-sm-6 col-xs-12 center-div\">" +
-                            "                <div class=\"card\">" +
-                            "                    <img src=\"" + data[i].pathImg + "\"> " +
-                            "                    <div class=\"card-body\">" +
-                            "                        <h3>" + data[i].nome + "</h3>" +
-                            "                        <p>" + data[i].prezzo + "&euro;</p>" +
-                            "                    </div>" +
-                            "                </div>" +
-                            "            </div>");
-                else {
-                    var finPrice = (data[i].prezzo / 100) * (100 - data[i].percSconto);
-                    $('.products').append("<div class=\"col-lg-3 col-sm-6 col-xs-12 center-div\">" +
+                    $('.products').append("" +
+                        "              <div class=\"col-lg-3 col-sm-6 col-xs-12 center-div\">" +
+                        "             <form action=\"info-product\" method=\"get\">" +
+                        "              <input type=\"hidden\" name=\"id\" value=\"" + data[i].idProdotto + "\">"+
                         "                <div class=\"card\">" +
                         "                    <img src=\"" + data[i].pathImg + "\"> " +
                         "                    <div class=\"card-body\">" +
                         "                        <h3>" + data[i].nome + "</h3>" +
-                        "                        <p><del>" + data[i].prezzo + "&euro;" +
-                        "                           </del> <i class=\"fa-solid fa-arrow-right\"></i>" +
-                        "                          " + finPrice + "&euro; (-" + data[i].percSconto + "%)</p>" +
+                        "                        <p>" + data[i].prezzo + "&euro;</p>" +
                         "                    </div>" +
                         "                </div>" +
-                        "            </div>");
+                        "              </form>" +
+                        "               </div>");
+                else {
+                    var finPrice = (data[i].prezzo / 100) * (100 - data[i].percSconto);
+                    $('.products').append("" +
+                        "               <div class=\"col-lg-3 col-sm-6 col-xs-12 center-div\"> " +
+                        "                   <form action=\"info-product\" method=\"get\">" +
+                            "                   <input type=\"hidden\" name=\"id\" value=\"" + data[i].idProdotto + "\">"+
+                            "                   <div class=\"card\">" +
+                            "                       <img src=\"" + data[i].pathImg + "\"> " +
+                            "                       <div class=\"card-body\">" +
+                            "                           <h3>" + data[i].nome + "</h3>" +
+                            "                           <p><del>" + data[i].prezzo + "&euro;" +
+                            "                           </del> <i class=\"fa-solid fa-arrow-right\"></i>" +
+                            "                          " + finPrice + "&euro; (-" + data[i].percSconto + "%)</p>" +
+                            "                       </div>" +
+                            "                   </div>" +
+                        "                   </form>" +
+                        "                </div>");
                 }
             }
-
         }
+    });
+
+    $('.latest-products').on('click', '.card', function () {
+        $(this).closest('form').submit()
     });
 });

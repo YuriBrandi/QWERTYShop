@@ -46,4 +46,44 @@ public class ProdottoDAO {
 
     }
 
+    public Prodotto doRetrieveAllById (String id) {
+
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM Prodotto WHERE idProdotto = ?");
+            Prodotto p = new Prodotto();
+
+            ps.setString(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                p.setIdProdotto(rs.getInt(1));
+                p.setNome(rs.getString(2));
+                p.setMarca(rs.getString(3));
+                p.setPrezzo(rs.getDouble(4));
+                p.setPercSconto(rs.getByte(5));
+                p.setDescrizione(rs.getString(6));
+                p.setPezziDisponibili(rs.getInt(7));
+                p.setPathImg(rs.getString(8));
+                p.setRGB(rs.getBoolean(9));
+                p.setCategoria(rs.getString(10));
+                p.setKeyboardSize(rs.getByte(11));
+                p.setKeyboardLayout(rs.getString(12));
+                p.setHotSwappable(rs.getBoolean(13));
+                p.setTipoSwitch(rs.getString(14));
+                p.setKeycapMaterial(rs.getString(15));
+                p.setKeycapProfile(rs.getString(16));
+            }
+
+            ps.close();
+
+            return p;
+
+        } catch (SQLException e) {
+            return null;
+        }
+
+
+    }
+
 }
