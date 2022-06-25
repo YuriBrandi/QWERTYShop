@@ -1,4 +1,5 @@
 <%@ page import="Model.Prodotto" %>
+<%@ page import="java.io.PrintWriter" %>
 <%@ include file="WEB-INF/header.jsp"%>
 
 <html>
@@ -21,8 +22,15 @@
                 <h2 class="center"><%= p.getNome()%></h2>
                 <p><b>Marca</b>: <%= p.getMarca()%></p>
                 <p><b>Descrizione</b>: <%= p.getDescrizione()%></p>
-                <p><b>Layout</b>: <%= p.getKeyboardLayout()%></p>
-                <p><b>Dimensione</b>: <%= p.getKeyboardSize()%>%</p>
+                <%if (p.getCategoria().equals("Tastiera")) { %>
+                    <p><b>Layout</b>: <%= p.getKeyboardLayout()%></p>
+                    <p><b>Dimensione</b>: <%= p.getKeyboardSize()%>%</p>
+                <%} %>
+                <%if (p.isRGB()) {%>
+                    <p><b>RGB</b>: <%= "Si" %></p>
+                <%} else { %>
+                    <p><b>RGB</b>: <%= "No" %></p>
+                <%} %>
             </div>
         </div>
 
