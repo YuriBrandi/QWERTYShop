@@ -29,13 +29,15 @@ public class AddAddress extends HttpServlet {
         IndirizzoDAO dao = new IndirizzoDAO();
 
         dao.doSaveAddress(email, indirizzo);
-
+        String res = "{\"status\": \"ok\"}";
+        //writer.print(res);
+        /*writer.print("success");
         ArrayList<Indirizzo> list = dao.doRetrieveAllByEmail(email);
         String json = new Gson().toJson(list);
         System.out.println(json);
 
         writer.print(json);
-        writer.flush();
+        writer.flush();*/
 
     }
 }
