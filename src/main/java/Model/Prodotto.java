@@ -99,9 +99,14 @@ public class Prodotto {
         return prezzo;
     }
 
+    public double getPrezzoScontato() {
+        return prezzo / 100 * (100 - percSconto);
+    }
+
     public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
     }
+
 
     public byte getPercSconto() {
         return percSconto;
