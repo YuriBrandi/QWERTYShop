@@ -61,11 +61,17 @@
         </table>
     </div>
 
+    <%
+        if(session.getAttribute("carrello") != null){
+    %>
+        <%= session.getAttribute("carrello")%>
+    <%} %>
+
     <div class="container">
         <div class="center">
             <h2>Totale: 1000€</h2>
             <button class="form-submit"><i class="fa-solid fa-eraser"></i>&nbsp; Svuota Carrello</button>
-            <button class="form-submit"><i class="fa-solid fa-cart-arrow-down"></i>&nbsp; Crea Ordine</button>
+            <button class="form-submit"><i class="fa-solid fa-box-open"></i>&nbsp; Crea Ordine</button>
         </div>
     </div>
 
