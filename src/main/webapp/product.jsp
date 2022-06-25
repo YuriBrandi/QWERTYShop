@@ -8,7 +8,7 @@
     <%
         Prodotto p = (Prodotto) request.getAttribute("prodotto");
     %>
-    <title><%=p.getNome()%>></title>
+    <title><%=p.getNome()%></title>
 </head>
 <body>
 
@@ -62,7 +62,7 @@
                     </h3>
                 <%}%>
                 <form method="get" action="add-to-cart">
-                    <input type="hidden" name="id" value="<%= p.getIdProdotto()%>>">
+                    <input type="hidden" name="id" value="<%= p.getIdProdotto()%>">
 
                     <button type="button" class="remove-btn circle-btn">
                         <i class="fa-solid fa-minus"></i>

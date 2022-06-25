@@ -32,18 +32,27 @@ public class AddToCart extends HttpServlet {
             cart_item.setQuantita(quantita);
 
             ArrayList<ContenutoCarrello> cart_list = null;
-            Gson gson = new Gson();
+            //Gson gson = new Gson();
+            boolean is_in_cart = false;
             if(session.getAttribute("carrello") != null) {
-                cart_list = gson.fromJson(session.getAttribute("carrello").toString(), ArrayList.class);
-                cart_list.add(cart_item);
+                //cart_list = gson.fromJson(session.getAttribute("carrello").toString(), ArrayList.class);
+                cart_list = (ArrayList<ContenutoCarrello>) session.getAttribute("carrello");
+                for(ContenutoCarrello item : cart_list){
+                    if(item.getIdProdotto() == cart_item.getIdProdotto()){
+                        item.setQuantita((short) (item.getQuantita() + cart_item.getQuantita()));
+                        is_in_cart = true;
+                    }
+                }
+                if(!is_in_cart)
+                    cart_list.add(cart_item);
             }
             else {
                 cart_list = new ArrayList<>();
                 cart_list.add(cart_item);
             }
 
-            String json = gson.toJson(cart_item);
-            session.setAttribute("carrello", json);
+            //String json = gson.toJson(cart_item);
+            session.setAttribute("carrello", cart_list);
 
         }
 
