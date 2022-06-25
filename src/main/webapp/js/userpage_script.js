@@ -63,10 +63,9 @@ $(document).ready(function(){
                     indirizzo: address
                 },
                 url: "add-address",
-                complete: function (xhr, status) {
+                success: function (){
                     cleanup_table();
                     load_addresses();
-                    console.log(status)
                 }
             });
         }
@@ -85,7 +84,7 @@ $(document).ready(function(){
               indirizzo: address
           },
           url: "remove-address",
-          complete: function () {
+          success: function () {
               cleanup_table();
               load_addresses();
           }
@@ -105,11 +104,19 @@ $(document).ready(function(){
               oldAddress: addressBefore
           },
           url: "update-address",
-          complete: function (data) {
+          success: function () {
               cleanup_table();
               load_addresses();
           }
       });
+
+      //Alternativa
+      /*
+      $.get("remove-address?email=" + emailString + "&indirizzo=" + address,
+          function(status){
+              console.log(status);
+              //console.log("Data: " + data + "\nStatus: " + status);
+          });*/
 
   });
 });

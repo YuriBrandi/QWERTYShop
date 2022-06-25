@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 @WebServlet("/remove-address")
 public class RemoveAddress extends HttpServlet {
@@ -30,12 +29,7 @@ public class RemoveAddress extends HttpServlet {
 
         dao.doDeleteAddressByEmail(email, indirizzo);
 
-        ArrayList<Indirizzo> list = dao.doRetrieveAllByEmail(email);
-        String json = new Gson().toJson(list);
-        System.out.println(json);
-
-        writer.print(json);
+        writer.print("{\"status\": \"removed\"}");
         writer.flush();
-
     }
 }

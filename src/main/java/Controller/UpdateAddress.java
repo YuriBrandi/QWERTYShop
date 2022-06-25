@@ -31,11 +31,7 @@ public class UpdateAddress extends HttpServlet {
 
         dao.doUpdateAddress(email, oldAdd, newAdd);
 
-        ArrayList<Indirizzo> list = dao.doRetrieveAllByEmail(email);
-        String json = new Gson().toJson(list);
-        System.out.println(json);
-
-        writer.print(json);
+        writer.print("{\"status\": \"edited\"}");
         writer.flush();
 
     }
