@@ -46,7 +46,7 @@ public class ProdottoDAO {
 
     }
 
-    public Prodotto doRetrieveAllById (String id) {
+    public Prodotto doRetrieveById (String id) {
 
         try (Connection connection = ConPool.getConnection()) {
 
