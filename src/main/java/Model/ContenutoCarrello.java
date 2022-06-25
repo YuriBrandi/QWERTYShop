@@ -28,4 +28,14 @@ public class ContenutoCarrello {
     public void setQuantita(short quantita) {
         this.quantita = quantita;
     }
+
+    //Per debug
+    @Override
+    public String toString() {
+        return "ContenutoCarrello{" +
+                "email='" + email + '\'' +
+                ", idProdotto=" + idProdotto +
+                ", quantita=" + quantita +
+                '}';
+    }
 }
