@@ -64,7 +64,7 @@
     <%
         if(session.getAttribute("carrello") != null){
     %>
-        <%= session.getAttribute("carrello")%>
+        <%= session.getAttribute("carrello").toString()%>
     <%} %>
 
     <div class="container">
