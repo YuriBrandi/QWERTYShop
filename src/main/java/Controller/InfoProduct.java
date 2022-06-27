@@ -20,7 +20,7 @@ public class InfoProduct extends HttpServlet {
 
         ProdottoDAO dao = new ProdottoDAO();
 
-        Prodotto p = dao.doRetrieveAllById(id);
+        Prodotto p = dao.doRetrieveById(id);
 
         System.out.println(p.toString());
 
