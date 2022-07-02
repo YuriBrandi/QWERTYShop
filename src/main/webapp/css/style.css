@@ -328,6 +328,7 @@ del {
 }
 
 h2 form .circle-btn{
+    z-index: -1;
     position: relative;
     top: -.2rem;
 }
@@ -340,6 +341,12 @@ h2 form .circle-btn{
     margin-left: auto;
     margin-right: auto;
     width: 60%;
+}
+
+.table.admin-mode {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
 }
 
 .table tr:first-child th:first-child {

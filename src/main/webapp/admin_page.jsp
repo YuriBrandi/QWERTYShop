@@ -38,7 +38,7 @@
     <br><br>
     <h2>Interfaccia amministratore:</h2>
     <h4>(*)Applicabili solo da alcune categorie</h4>
-    <table class="table">
+    <table class="table admin-mode">
         <tr>
             <th>ID Prodotto</th>
             <th>Pezzi disponibili</th>
