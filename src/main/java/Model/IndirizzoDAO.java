@@ -12,7 +12,7 @@ public class IndirizzoDAO {
 
         try (Connection connection = ConPool.getConnection()) {
 
-            PreparedStatement ps = connection.prepareStatement("SELECT * FROM Indirizzo WHERE email = ?");
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM Indirizzo WHERE email = ? ORDER BY Indirizzo ASC");
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
             ArrayList<Indirizzo> list = new ArrayList<>();
