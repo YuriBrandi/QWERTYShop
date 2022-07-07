@@ -52,12 +52,12 @@
                 <%} else { %>
                     <h3><b>RGB</b>: <i class="fa-solid fa-xcross"></i></h3>
                 <%} %>
-                <p><b>Descrizione:</b><%= p.getDescrizione()%></p>
+                <p><b>Descrizione:</b> <%= p.getDescrizione()%></p>
                 <%if (p.getPercSconto() == 0) {%>
                     <h3><b>Prezzo</b>: <%= p.getPrezzo()%>&euro;</h3>
                 <%} else {%>
                     <h3>
-                        <b>Prezzo</b>: <del><%= p.getPrezzo()%>&euro;</del>  (-<%= p.getPercSconto() %>%)
+                        <b>Prezzo:</b> <del><%= p.getPrezzo()%>&euro;</del>  (-<%= p.getPercSconto() %>%)
                         <i class="fa-solid fa-arrow-right"></i>  <%= p.getPrezzoScontato()%>&euro;
                     </h3>
                 <%}%>
@@ -71,8 +71,14 @@
                     <button type="button" class="add-btn circle-btn">
                         <i class="fa-solid fa-plus"></i>
                     </button>
+                    &nbsp;&nbsp;
 
-                    <button class="form-submit" type="submit"><i class="fa-solid fa-cart-arrow-down"></i>  Aggiungi al carrello</button>
+                    <% if(p.getPezziDisponibili() > 0){ %>
+                        <button class="form-submit" type="submit"><i class="fa-solid fa-cart-arrow-down"></i>  Aggiungi al carrello</button>
+                        <% if(p.getPezziDisponibili() < 10)
+                            out.write("</br></br>Affrettati! Solo " + p.getPezziDisponibili() + " pezzi disponibili.");
+                    } else
+                        out.write("Non disponibile");%>
                 </form>
             </div>
         </div>
