@@ -8,10 +8,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="WEB-INF/header.jsp"%>
 
-<%--
+<%
     if(u == null)
         response.sendRedirect("account.jsp");
---%>
+    else if(!u.isAdmin())
+        response.sendRedirect("user_page.jsp");
+%>
 <html>
 <head>
     <title>Ciao ${utente.nome}</title>
@@ -41,10 +43,10 @@
     <table class="table admin-mode">
         <tr>
             <th>ID Prodotto</th>
-            <th>Pezzi disponibili</th>
+            <th>Pezzi Disponibili</th>
             <th>Nome</th>
             <th>Marca</th>
-            <th>Prezzo</th>
+            <th>Prezzo (&euro;)</th>
             <th>Sconto (%)</th>
             <th>Immagine</th>
             <th>Descrizione</th>
@@ -62,29 +64,23 @@
                 2
             </td>
             <td>
-                <button type="button" class="remove-btn circle-btn">
-                    <i class="fa-solid fa-minus"></i>
-                </button>
-                <input type="text" class="input-txt_fld quantity_fld" name="qnty" value = "1" readonly>
-                <button type="button" class="add-btn circle-btn">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
+                <input type="text" class="input-txt_fld quantity_fld" name="qnty" value = "1">
             </td>
             <td>
-                <input type="text" class="input-txt_fld" value="Keychron Q1">
+                <input type="text" class="input-txt_fld table-input" value="Keychron Q1">
             </td>
             <td>
-                <input type="text" class="input-txt_fld" value="Keychron">
+                <input type="text" class="input-txt_fld table-input" value="Keychron">
             </td>
             <td>
-                <input type="text" class="input-txt_fld" value="150">&euro;
+                    <input type="text" class="input-txt_fld quantity_fld" value="150">
             </td>
             <td>
-                <input type="text" class="input-txt_fld" value="5">%
+                <input type="text" class="input-txt_fld quantity_fld" value="5">
             </td>
             <td>
 
-                <select class="form-submit" name="img">
+                <select class="input-txt_fld table-input" name="img">
                     <%
 
                         File fold = new File(request.getServletContext().getRealPath("/img/products"));
@@ -96,28 +92,28 @@
                 </select>
             </td>
             <td>
-                <input type="text" class="input-txt_fld" value="Tastiera molto bella bellissima">
+                <input type="text" class="input-txt_fld table-input" value="Tastiera molto bella bellissima">
             </td>
             <td>
-                <select class="form-submit" name="categoria">
+                <select class="input-txt_fld table-input" name="categoria">
                     <option>Tastiera</option>
                     <option>Switch</option>
                     <option>Keycap</option>
                 </select>
             </td>
             <td>
-                <select class="form-submit" name="categoria">
+                <select class="input-txt_fld table-input" name="rgb">
                     <option>Sì</option>
                     <option>No</option>
                 </select>
             </td>
         </tr>
     </table>
-    <%--request.getServletContext().getRealPath("/img/products") + "<br>" --%>
-
+    <%-- request.getServletContext().getRealPath("/img/products") + "<br>" --%>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/b2ea133689.js" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
+<script src="js/adminpage_script.js"></script>
 </body>
 </html>
