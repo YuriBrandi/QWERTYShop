@@ -45,8 +45,6 @@ public class ConPool {
 		if (datasource == null) {
 			PoolProperties p = new PoolProperties();
 			p.setUrl("jdbc:mysql://brandi-dellarocca.vpsgh.it:3306/Progetto_TSW?serverTimezone=" + TimeZone.getDefault().getID());
-			/*p.setUrl("jdbc:mysql://sbrandi-dellarocca.vpsgh.it:3306/Progetto_TSW?enabledTLSProtocols=TLSv1.2" +
-					"&serverTimezone=" + TimeZone.getDefault().getID());*/
 			p.setDriverClassName("com.mysql.cj.jdbc.Driver");
 			p.setUsername("remote_usr");
 			p.setPassword("YuriRoberto123");
