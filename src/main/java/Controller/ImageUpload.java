@@ -21,27 +21,12 @@ public class ImageUpload extends HttpServlet {
 
         Part part = request.getPart("image");
         String fileName = part.getSubmittedFileName();
-        String path = getServletContext().getRealPath("/img/products" + File.separator + fileName);
+        String img_path = getServletContext().getRealPath("/img/products" + File.separator + fileName);
 
-        InputStream is = part.getInputStream();
-
-        boolean test = false;
-
-        try {
-            byte[] byt = new byte[is.available()];
-            int read = is.read();
-            FileOutputStream fileOutputStream = new FileOutputStream(path);
-            fileOutputStream.write(byt);
-            fileOutputStream.flush();
-            fileOutputStream.close();
-            test = true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (test) {
-            response.getWriter().print("file salvato in questo path: " + path);
-        }
+        part.write(img_path);
+        File img = new File(img_path);
+        if(img.exists())
+            response.getWriter().print("file salvato in questo path: " + img_path);
         else
             response.getWriter().print("error");
 
