@@ -31,12 +31,15 @@
     <h3>e-mail: <span class="email">${utente.email}</span></h3>
     <br>
 
-    <div>
-        <h3>Carica immagine:</h3>
-        <input class="form-submit" type="file" id="img" name="img" accept="image/*">&nbsp;
-        <button class="add-btn circle-btn"><i class="fa-solid fa-upload"></i></button>
-        <p id="err_msg"></p>
-    </div>
+    <form  id="upload-img" enctype='multipart/form-data'>
+        <div>
+            <h3>Carica immagine:</h3>
+            <input class="form-submit" type="file" id="img-upl" name="image" accept="image/*">&nbsp;
+            <button class="add-btn circle-btn" id="upload-image-button"><i class="fa-solid fa-upload"></i></button>
+            <p id="err_msg"></p>
+        </div>
+    </form>
+
     <br><br>
     <h2>Interfaccia amministratore:</h2>
     <h4>(*)Applicabili solo da alcune categorie</h4>
