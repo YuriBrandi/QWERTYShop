@@ -17,7 +17,10 @@ import java.nio.file.Paths;
 public class ImageUpload extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
+        response.setContentType("application/json");
+        PrintWriter writer = response.getWriter();
 
         Part part = request.getPart("image");
         String fileName = part.getSubmittedFileName();
@@ -26,10 +29,11 @@ public class ImageUpload extends HttpServlet {
         part.write(img_path);
         File img = new File(img_path);
         if(img.exists())
-            response.getWriter().print("file salvato in questo path: " + img_path);
+            writer.print("{\"fileName\" : \"" + fileName  + "\"}");
         else
-            response.getWriter().print("error");
+            writer.print("{\"fileName\" : \"error\"}");
 
+        writer.flush();
     }
 
 }

@@ -20,7 +20,7 @@ public class AddAddress extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.setCharacterEncoding("utf8");
-        response.setContentType("text/txt");
+        response.setContentType("application/json");
         PrintWriter writer = response.getWriter();
 
         String email = request.getParameter("email");
@@ -29,8 +29,8 @@ public class AddAddress extends HttpServlet {
         IndirizzoDAO dao = new IndirizzoDAO();
 
         dao.doSaveAddress(email, indirizzo);
-        //writer.print("{\"status\": \"added\"}");
-       // writer.flush();
+        writer.print("{\"status\": \"added\"}");
+        writer.flush();
 
     }
 }
