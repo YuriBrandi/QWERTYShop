@@ -31,14 +31,15 @@
     <h3>e-mail: <span class="email">${utente.email}</span></h3>
     <br>
 
-    <form  id="upload-img" enctype='multipart/form-data'>
+    <!--<form action="#" id="upload-img" enctype='multipart/form-data'>-->
         <div>
             <h3>Carica immagine:</h3>
             <input class="form-submit" type="file" id="img-upl" name="image" accept="image/*">&nbsp;
             <button class="add-btn circle-btn" id="upload-image-button"><i class="fa-solid fa-upload"></i></button>
-            <p id="err_msg"></p>
         </div>
-    </form>
+    <!--</form>-->
+
+    <p id="err_msg"></p>
 
     <br><br>
     <h2>Interfaccia amministratore:</h2>
@@ -83,7 +84,7 @@
             </td>
             <td>
 
-                <select class="input-txt_fld table-input" name="img">
+                <select class="input-txt_fld table-input" id="img-selector" name="img">
                     <%
 
                         File fold = new File(request.getServletContext().getRealPath("/img/products"));
@@ -92,6 +93,7 @@
                          for(File f : lista)
                             out.write("<option>" + f.getName() + "</option>");
                     %>
+
                 </select>
             </td>
             <td>
@@ -113,6 +115,11 @@
         </tr>
     </table>
     <%-- request.getServletContext().getRealPath("/img/products") + "<br>" --%>
+    <%--
+        if(lista != null)
+            for(File f : lista)
+                out.write("<img src=\"img/products/" + f.getName() + "\" width='100px'>");
+    --%>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/b2ea133689.js" crossorigin="anonymous"></script>
