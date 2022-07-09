@@ -56,4 +56,36 @@ $(document).ready(function (){
     }
 
     load_products();
+
+    $('#upload-image-button').click(function (){
+
+        $("#err_msg").text("");
+        var file = $('#img-upl')[0].files[0];
+        var formData = new FormData();
+        formData.append( "image", file);
+
+        // Check file selected or not
+        if(file === undefined) {
+            $("#err_msg").text("Non hai inserito nessun'immagine");
+        }
+        else{
+            $.ajax({
+                type: "POST",
+                url: "image-upload",
+                data: formData,
+                processData: false,
+                contentType: false,
+
+                success: function(data) {
+                    console.log(data);
+                    var file_name = data.fileName;
+
+                    if( file_name == "error" )
+                        $("#err_msg").text("Caricamento immagine non riuscito");
+                    else
+                        $("#img-selector").append("<option>" + file_name + "</option>")
+                }
+            });
+        }
+    });
 });
