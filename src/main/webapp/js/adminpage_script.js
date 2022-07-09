@@ -60,11 +60,14 @@ $(document).ready(function (){
     $('#upload-image-button').click(function (){
 
         $("#err_msg").text("");
+
         var file = $('#img-upl')[0].files[0];
         var formData = new FormData();
         formData.append( "image", file);
 
-        // Check file selected or not
+        $('#img-upl').val("");
+
+        // Check file
         if(file === undefined) {
             $("#err_msg").text("Non hai inserito nessun'immagine");
         }
