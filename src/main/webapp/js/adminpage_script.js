@@ -91,4 +91,15 @@ $(document).ready(function (){
             });
         }
     });
+
+    $('.open-modal').click(function () {
+        //$('.modal-overlay, .modal-content').addClass('active');
+        var modal = $(this).attr('modal-target');
+        console.log(modal);
+        $('[modal-name="' + modal + '"]').addClass('active');
+    });
+
+    $('.close-modal').click(function () {
+        $('.modal-overlay').removeClass('active');
+    });
 });

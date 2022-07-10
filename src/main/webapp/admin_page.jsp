@@ -41,6 +41,27 @@
 
     <p id="err_msg"></p>
 
+    <div class="modal-overlay" modal-name="modal-0">
+        <div class="modal-content">
+            <div class="close-mod">
+                <a href="#" class="close-modal"><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            <p>Mi piace la figa! Ma non l'ho mai vista xD</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" modal-name="modal-1">
+        <div class="modal-content">
+            <div class="close-mod">
+                <a href="#" class="close-modal"><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            <p>Non e' vero sono GAY! xD</p>
+        </div>
+    </div>
+
+    <button modal-target="modal-0" class="open-modal form-submit">Apri Modal 0</button>
+    <button modal-target="modal-1" class="open-modal form-submit">Apri Modal 1</button>
+
     <br><br>
     <h2>Interfaccia amministratore:</h2>
     <h4>(*)Applicabili solo da alcune categorie</h4>
