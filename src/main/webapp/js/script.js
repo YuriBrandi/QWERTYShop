@@ -5,8 +5,6 @@ $(document).ready(function(){
         // document.body.classList.toggle("no-scroll")
         $('body').toggleClass('no-scroll');
         $('nav .toggle a i').toggleClass('fa-bars-staggered fa-xmark');
-
-        console.log("triggered toggle");
     });
 
 });

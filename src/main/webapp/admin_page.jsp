@@ -41,30 +41,103 @@
 
     <p id="err_msg"></p>
 
-    <div class="modal-overlay" modal-name="modal-0">
-        <div class="modal-content">
-            <div class="close-mod">
-                <a href="#" class="close-modal"><i class="fa-solid fa-xmark"></i></a>
-            </div>
-            <p>Mi piace la figa! Ma non l'ho mai vista xD</p>
-        </div>
-    </div>
-
-    <div class="modal-overlay" modal-name="modal-1">
-        <div class="modal-content">
-            <div class="close-mod">
-                <a href="#" class="close-modal"><i class="fa-solid fa-xmark"></i></a>
-            </div>
-            <p>Non e' vero sono GAY! xD</p>
-        </div>
-    </div>
-
-    <button modal-target="modal-0" class="open-modal form-submit">Apri Modal 0</button>
-    <button modal-target="modal-1" class="open-modal form-submit">Apri Modal 1</button>
-
     <br><br>
     <h2>Interfaccia amministratore:</h2>
     <h4>(*)Applicabili solo da alcune categorie</h4>
+
+    <div class="modal-overlay" modal-name="modal-add-keyboard">
+        <div class="modal-content">
+            <div class="close-mod">
+                <a href="#" class="close-modal"><i class="fa-solid fa-xmark"></i></a>
+            </div>
+            <h3>Aggiungi Tastiera</h3>
+            <form action="add-keyboard" method="post" id="#add-keyboard">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-12">
+                            <input type="text" class="input-txt_fld table-input" placeholder="Nome" name="nome">
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                            <input type="text" class="input-txt_fld table-input" placeholder="Marca" name="marca">
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                            <input type="number" class="input-txt_fld table-input" placeholder="Pezzi" name="numPezzi">
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                            <input type="number" class="input-txt_fld table-input" placeholder="Prezzo" name="prezzo">
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                            <input type="number" class="input-txt_fld table-input" placeholder="Sconto" name="sconto">
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                            <select class="img-selector input-txt_fld table-input" name="img">
+                                <option value="" disabled selected>URL Immagine</option>
+                                <%
+
+                                    File fold = new File(request.getServletContext().getRealPath("/img/products"));
+                                    File[] lista = fold.listFiles();
+                                    if(lista != null)
+                                        for(File f : lista)
+                                            out.write("<option value=\""+ f.getName() +"\">" + f.getName() + "</option>");
+                                %>
+
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <select class="input-txt_fld table-input" name="rgb">
+                                <option value="" disabled selected>RGB</option>
+                                <option value="1">Sì</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <select class="input-txt_fld table-input" name="hotswappable">
+                                <option value="" disabled selected>HotSwappable</option>
+                                <option value="1">Sì</option>
+                                <option value="0">No</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <select class="input-txt_fld table-input" name="layout">
+                                <option value="" disabled selected>Layout</option>
+                                <option value="ISO">ISO</option>
+                                <option value="ANSI">ANSI</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-sm-12">
+                            <select class="input-txt_fld table-input" name="switch">
+                                <option value="" disabled selected>Tipo Switch</option>
+                                <option value="Tactile">Tattile</option>
+                                <option value="Linear">Lineare</option>
+                                <option value="Clicky">Clicky</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4 col-sm-12">
+                            <select class="input-txt_fld table-input" name="dimensione">
+                                <option value="" disabled selected>Dimensione</option>
+                                <option value="40">20%</option>
+                                <option value="60">60%</option>
+                                <option value="65">65%</option>
+                                <option value="75">75%</option>
+                                <option value="80">80%</option>
+                                <option value="95">95%</option>
+                                <option value="100">100%</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-12 col-sm-12">
+                            <input type="text" class="input-txt_fld table-input" placeholder="Descrizione" name="descrizione">
+                        </div>
+                        <div class="center">
+                            <button class="form-submit" type="submit">Invio </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <button modal-target="modal-add-keyboard" class="open-modal form-submit">Aggiungi Tastiera <i class="fa-solid fa-keyboard"></i></button>
+
     <table class="table admin-mode">
         <tr>
             <th>ID Prodotto</th>
@@ -83,56 +156,6 @@
             <th>Tipo Switch*</th>
             <th>Materiale Keycap*</th>
             <th>Profilo Keycap*</th>
-        </tr>
-        <tr>
-            <td>
-                2
-            </td>
-            <td>
-                <input type="text" class="input-txt_fld quantity_fld" name="qnty" value = "1">
-            </td>
-            <td>
-                <input type="text" class="input-txt_fld table-input" value="Keychron Q1">
-            </td>
-            <td>
-                <input type="text" class="input-txt_fld table-input" value="Keychron">
-            </td>
-            <td>
-                    <input type="text" class="input-txt_fld quantity_fld" value="150">
-            </td>
-            <td>
-                <input type="text" class="input-txt_fld quantity_fld" value="5">
-            </td>
-            <td>
-
-                <select class="input-txt_fld table-input" id="img-selector" name="img">
-                    <%
-
-                        File fold = new File(request.getServletContext().getRealPath("/img/products"));
-                        File[] lista = fold.listFiles();
-                        if(lista != null)
-                         for(File f : lista)
-                            out.write("<option>" + f.getName() + "</option>");
-                    %>
-
-                </select>
-            </td>
-            <td>
-                <input type="text" class="input-txt_fld table-input" value="Tastiera molto bella bellissima">
-            </td>
-            <td>
-                <select class="input-txt_fld table-input" name="categoria">
-                    <option>Tastiera</option>
-                    <option>Switch</option>
-                    <option>Keycap</option>
-                </select>
-            </td>
-            <td>
-                <select class="input-txt_fld table-input" name="rgb">
-                    <option>Sì</option>
-                    <option>No</option>
-                </select>
-            </td>
         </tr>
     </table>
     <%-- request.getServletContext().getRealPath("/img/products") + "<br>" --%>

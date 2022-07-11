@@ -82,7 +82,33 @@ public class ProdottoDAO {
         } catch (SQLException e) {
             return null;
         }
+    }
 
+    public void doSaveKeyboard(Prodotto p) {
+
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO Prodotto(nome, marca, prezzo, percSconto, descrizione, pezziDisponibili, pathImg, isRGB, categoria, keyboardSize, keyboardLayout, isHotSwappable, tipoSwitch) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            ps.setString(1, p.getNome());
+            ps.setString(2, p.getMarca());
+            ps.setDouble(3, p.getPrezzo());
+            ps.setByte(4, p.getPercSconto());
+            ps.setString(5, p.getDescrizione());
+            ps.setInt(6, p.getPezziDisponibili());
+            ps.setString(7, p.getPathImg());
+            ps.setBoolean(8, p.isRGB());
+            ps.setString(9, p.getCategoria());
+            ps.setByte(10, p.getKeyboardSize());
+            ps.setString(11, p.getKeyboardLayout());
+            ps.setBoolean(12, p.isHotSwappable());
+            ps.setString(13, p.getTipoSwitch());
+
+            int rs = ps.executeUpdate();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 

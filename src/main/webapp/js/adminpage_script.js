@@ -1,6 +1,27 @@
 $(document).ready(function (){
 
+    let images = [];
+
+    function list_images_products() {
+
+        $.ajax({
+            type: "GET",
+            url: "show-images-folder",
+            dataType : "json",
+            success: function (data) {
+               for (var i = 0; i < data.length; i++)
+                   images.push(data[i]);
+            }
+        });
+
+    }
+
+    console.log(images);
+
     function load_products(){
+
+        list_images_products();
+
         $.ajax({
             type: "GET",
             url: "show-products",
@@ -10,6 +31,16 @@ $(document).ready(function (){
                 console.log(length);
 
                 for(var i = 0; i < lenght; i++){
+
+                    var optionImages = "";
+
+                    for (var j = 0; j < images.length; j++) {
+                        if (data[i].pathImg.includes(images[j]))
+                            optionImages += "<option value=\"" + images[j] + "\" selected >" + images[j] + "</option>";
+                        else
+                            optionImages += "<option value=\"" + images[j] + "\" >" + images[j] + "</option>";
+                    }
+
                     $('.table').append(
                         "<tr>" +
                         "   <td>" +
@@ -30,7 +61,9 @@ $(document).ready(function (){
                         "       <input type=\"text\" class=\"input-txt_fld quantity_fld\" name=\"qnty\" value =" + data[i].percSconto + ">" +
                         "   </td>" +
                         "   <td>" +
-                        "       --- " +
+                        "       <select  class=\"img-selector input-txt_fld table-input\" name=\"image\">" +
+                                    optionImages +
+                        "       </select>" +
                         "   </td>" +
                         "   <td>" +
                         "       <input type=\"text\" class=\"input-txt_fld table-input\" name=\"qnty\" value =" + data[i].descrizione + ">" +
@@ -86,20 +119,20 @@ $(document).ready(function (){
                     if( file_name == "error" )
                         $("#err_msg").text("Caricamento immagine non riuscito");
                     else
-                        $("#img-selector").append("<option>" + file_name + "</option>")
+                        $(".img-selector").append("<option>" + file_name + "</option>")
                 }
             });
         }
     });
 
     $('.open-modal').click(function () {
-        //$('.modal-overlay, .modal-content').addClass('active');
         var modal = $(this).attr('modal-target');
-        console.log(modal);
         $('[modal-name="' + modal + '"]').addClass('active');
+        $('body').addClass('no-scroll');
     });
 
     $('.close-modal').click(function () {
-        $('.modal-overlay').removeClass('active');
+        $('.modal-overlay, .modal-content').removeClass('active');
+        $('body').removeClass('no-scroll');
     });
 });
