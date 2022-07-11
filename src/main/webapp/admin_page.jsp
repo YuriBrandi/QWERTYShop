@@ -27,8 +27,6 @@
             <button class="circle-btn" type="submit"><i class="fa-solid fa-sign-out"></i></button>
         </form>
     </h2>
-
-    <h3>e-mail: <span class="email">${utente.email}</span></h3>
     <br>
 
     <!--<form action="#" id="upload-img" enctype='multipart/form-data'>-->
@@ -42,8 +40,29 @@
     <p id="err_msg"></p>
 
     <br><br>
-    <h2>Interfaccia amministratore:</h2>
-    <h4>(*)Applicabili solo da alcune categorie</h4>
+    <h2>Interfaccia amministratore</h2>
+
+    <button modal-target="modal-add-keyboard" class="open-modal form-submit">Aggiungi Tastiera <i class="fa-solid fa-keyboard"></i></button>
+
+    <h3></h3>
+
+    <table class="table keyboard admin-mode">
+        <tr>
+            <th>ID Prodotto</th>
+            <th>Pezzi Disponibili</th>
+            <th>Nome</th>
+            <th>Marca</th>
+            <th>Prezzo (&euro;)</th>
+            <th>Sconto</th>
+            <th>Azioni</th>
+        </tr>
+    </table>
+    <%-- request.getServletContext().getRealPath("/img/products") + "<br>" --%>
+    <%--
+        if(lista != null)
+            for(File f : lista)
+                out.write("<img src=\"img/products/" + f.getName() + "\" width='100px'>");
+    --%>
 
     <div class="modal-overlay" modal-name="modal-add-keyboard">
         <div class="modal-content">
@@ -135,35 +154,6 @@
             </form>
         </div>
     </div>
-
-    <button modal-target="modal-add-keyboard" class="open-modal form-submit">Aggiungi Tastiera <i class="fa-solid fa-keyboard"></i></button>
-
-    <table class="table admin-mode">
-        <tr>
-            <th>ID Prodotto</th>
-            <th>Pezzi Disponibili</th>
-            <th>Nome</th>
-            <th>Marca</th>
-            <th>Prezzo (&euro;)</th>
-            <th>Sconto (%)</th>
-            <th>Immagine</th>
-            <th>Descrizione</th>
-            <th>Categoria</th>
-            <th>RGB</th>
-            <th>Layout Tastiera*</th>
-            <th>Dim. Tastiera*</th>
-            <th>Hotswappable*</th>
-            <th>Tipo Switch*</th>
-            <th>Materiale Keycap*</th>
-            <th>Profilo Keycap*</th>
-        </tr>
-    </table>
-    <%-- request.getServletContext().getRealPath("/img/products") + "<br>" --%>
-    <%--
-        if(lista != null)
-            for(File f : lista)
-                out.write("<img src=\"img/products/" + f.getName() + "\" width='100px'>");
-    --%>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/b2ea133689.js" crossorigin="anonymous"></script>

@@ -345,7 +345,8 @@ del {
 
 .table.admin-mode {
     width: 100%;
-    display: block;
+    display: flex;
+    justify-content: center;
     overflow-x: auto;
 }
 
