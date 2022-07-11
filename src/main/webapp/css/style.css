@@ -509,7 +509,9 @@ footer {
 }
 
 .card:hover {
-    transform: scale(1.02);
+    /*transform: scale(1.02); Creava uno stacking context che disturbava la navbar*/
+    background-color: #d6d6d6;
+    box-shadow: none;
 }
 
 .img-product-page {
