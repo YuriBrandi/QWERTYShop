@@ -198,4 +198,184 @@ public class ProdottoDAO {
 
     }
 
+    public void doSaveSwitch(Prodotto p) {
+
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO Prodotto(nome, marca, prezzo, percSconto, descrizione, pezziDisponibili, pathImg, isRGB, categoria, tipoSwitch) VALUES (?,?,?,?,?,?,?,?,?,?)");
+            ps.setString(1, p.getNome());
+            ps.setString(2, p.getMarca());
+            ps.setDouble(3, p.getPrezzo());
+            ps.setByte(4, p.getPercSconto());
+            ps.setString(5, p.getDescrizione());
+            ps.setInt(6, p.getPezziDisponibili());
+            ps.setString(7, p.getPathImg());
+            ps.setBoolean(8, p.isRGB());
+            ps.setString(9, p.getCategoria());
+            ps.setString(10, p.getTipoSwitch());
+
+            int rs = ps.executeUpdate();
+
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public ArrayList<Prodotto> doRetrieveBySwitch() {
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("SELECT idProdotto, nome, marca, prezzo, percSconto, descrizione, pezziDisponibili, pathImg, isRGB, categoria, tipoSwitch FROM Prodotto WHERE categoria = 'Switch'");
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Prodotto> list = new ArrayList<>();
+
+            while(rs.next()) {
+                Prodotto p = new Prodotto();
+                p.setIdProdotto(rs.getInt(1));
+                p.setNome(rs.getString(2));
+                p.setMarca(rs.getString(3));
+                p.setPrezzo(rs.getDouble(4));
+                p.setPercSconto(rs.getByte(5));
+                p.setDescrizione(rs.getString(6));
+                p.setPezziDisponibili(rs.getInt(7));
+                p.setPathImg(rs.getString(8));
+                p.setRGB(rs.getBoolean(9));
+                p.setCategoria(rs.getString(10));
+                p.setTipoSwitch(rs.getString(11));
+                list.add(p);
+            }
+
+            ps.close();
+
+            return list;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+    }
+
+    public void doUpdateSwitch(Prodotto p) {
+
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("UPDATE Prodotto SET nome = ?, marca = ?, prezzo = ?, percSconto = ?, descrizione = ?, pezziDisponibili = ?, pathImg = ?, isRGB = ?, tipoSwitch= ? WHERE idProdotto = ?");
+            ps.setString(1, p.getNome());
+            ps.setString(2, p.getMarca());
+            ps.setDouble(3, p.getPrezzo());
+            ps.setByte(4, p.getPercSconto());
+            ps.setString(5, p.getDescrizione());
+            ps.setInt(6, p.getPezziDisponibili());
+            ps.setString(7, p.getPathImg());
+            ps.setBoolean(8, p.isRGB());
+            ps.setString(9, p.getTipoSwitch());
+            ps.setInt(10, p.getIdProdotto());
+
+            int rs = ps.executeUpdate();
+
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void doSaveKeycap(Prodotto p) {
+
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO Prodotto(nome, marca, prezzo, percSconto, descrizione, pezziDisponibili, pathImg, isRGB, categoria, keycapMaterial, keycapProfile) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+            ps.setString(1, p.getNome());
+            ps.setString(2, p.getMarca());
+            ps.setDouble(3, p.getPrezzo());
+            ps.setByte(4, p.getPercSconto());
+            ps.setString(5, p.getDescrizione());
+            ps.setInt(6, p.getPezziDisponibili());
+            ps.setString(7, p.getPathImg());
+            ps.setBoolean(8, p.isRGB());
+            ps.setString(9, p.getCategoria());
+            ps.setString(10, p.getKeycapMaterial());
+            ps.setString(11, p.getKeycapProfile());
+
+            int rs = ps.executeUpdate();
+
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public ArrayList<Prodotto> doRetrieveByKeycap() {
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("SELECT idProdotto, nome, marca, prezzo, percSconto, descrizione, pezziDisponibili, pathImg, isRGB, categoria, keycapMaterial, keycapProfile FROM Prodotto WHERE categoria = 'Keycap'");
+            ResultSet rs = ps.executeQuery();
+            ArrayList<Prodotto> list = new ArrayList<>();
+
+            while(rs.next()) {
+                Prodotto p = new Prodotto();
+                p.setIdProdotto(rs.getInt(1));
+                p.setNome(rs.getString(2));
+                p.setMarca(rs.getString(3));
+                p.setPrezzo(rs.getDouble(4));
+                p.setPercSconto(rs.getByte(5));
+                p.setDescrizione(rs.getString(6));
+                p.setPezziDisponibili(rs.getInt(7));
+                p.setPathImg(rs.getString(8));
+                p.setRGB(rs.getBoolean(9));
+                p.setCategoria(rs.getString(10));
+                p.setKeycapMaterial(rs.getString(11));
+                p.setKeycapProfile(rs.getString(12));
+                list.add(p);
+            }
+
+            ps.close();
+
+            return list;
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+    }
+
+    public void doUpdateKeycap(Prodotto p) {
+
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("UPDATE Prodotto SET nome = ?, marca = ?, prezzo = ?, percSconto = ?, descrizione = ?, pezziDisponibili = ?, pathImg = ?, isRGB = ?, keycapMaterial = ?, keycapProfile = ? WHERE idProdotto = ?");
+            ps.setString(1, p.getNome());
+            ps.setString(2, p.getMarca());
+            ps.setDouble(3, p.getPrezzo());
+            ps.setByte(4, p.getPercSconto());
+            ps.setString(5, p.getDescrizione());
+            ps.setInt(6, p.getPezziDisponibili());
+            ps.setString(7, p.getPathImg());
+            ps.setBoolean(8, p.isRGB());
+            ps.setString(9, p.getKeycapMaterial());
+            ps.setString(10, p.getKeycapProfile());
+            ps.setInt(11, p.getIdProdotto());
+
+            int rs = ps.executeUpdate();
+
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 }

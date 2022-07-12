@@ -11,8 +11,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/add-keyboard")
-public class AddKeyboard extends HttpServlet {
+@WebServlet("/add-keycap")
+public class AddKeycap extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -27,35 +28,29 @@ public class AddKeyboard extends HttpServlet {
         int sconto = Integer.parseInt(request.getParameter("sconto"));
         String img = "img/products/" + request.getParameter("img");
         int rgb =  Integer.parseInt(request.getParameter("rgb"));
-        int hotswappable =  Integer.parseInt(request.getParameter("hotswappable"));
-        String layout = request.getParameter("layout");
-        String switchKeyboard = request.getParameter("switch");
-        int dimensione = Integer.parseInt(request.getParameter("dimensione"));
+        String materiale = request.getParameter("materiale");
+        String profilo = request.getParameter("profilo");
         String descrizione = request.getParameter("descrizione");
 
         Prodotto p = new Prodotto();
-        p.setCategoria("Tastiera");
+        p.setCategoria("Keycap");
         p.setDescrizione(descrizione);
         p.setNome(nome);
         p.setMarca(marca);
         p.setPezziDisponibili(numPezzi);
         p.setPrezzo(prezzo);
         p.setPercSconto((byte) sconto);
-        p.setKeyboardLayout(layout);
-        p.setKeyboardSize((byte) dimensione);
-        p.setTipoSwitch(switchKeyboard);
+        p.setKeycapMaterial(materiale);
+        p.setKeycapProfile(profilo);
         p.setPathImg(img);
         if (rgb == 1)
             p.setRGB(true);
         else
             p.setRGB(false);
-        if (hotswappable == 1)
-            p.setHotSwappable(true);
-        else
-            p.setHotSwappable(false);
+
 
         ProdottoDAO dao = new ProdottoDAO();
-        dao.doSaveKeyboard(p);
+        dao.doSaveKeycap(p);
 
         writer.print("{\"status\": \"added\"}");
         writer.flush();

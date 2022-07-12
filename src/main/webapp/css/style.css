@@ -565,7 +565,6 @@ footer {
     opacity: 1 !important;
 }
 
-
 .modal-content .close-mod {
     position: relative;
     top: -10px;
@@ -578,6 +577,10 @@ footer {
     color: black;
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+.open-modal.form-submit {
+    margin: 5px;
 }
 
 /* -- */
