@@ -1,6 +1,6 @@
 $(document).ready(function (){
 
-    let images = [];
+    var images = [];
 
     function list_images_products() {
 
@@ -9,8 +9,10 @@ $(document).ready(function (){
             url: "show-images-folder",
             dataType : "json",
             success: function (data) {
-               for (var i = 0; i < data.length; i++)
-                   images.push(data[i]);
+                while(images.length > 0)
+                    images.pop();
+                for (var i = 0; i < data.length; i++)
+                    images.push(data[i]);
             }
         });
 
@@ -19,6 +21,8 @@ $(document).ready(function (){
     console.log(images);
 
     function load_keyboards() {
+
+        images = [];
 
         list_images_products();
 
@@ -227,6 +231,8 @@ $(document).ready(function (){
 
     function load_switchs() {
 
+        images = [];
+
         list_images_products();
 
         $.ajax({
@@ -348,6 +354,8 @@ $(document).ready(function (){
     load_switchs();
 
     function load_keycaps() {
+
+        images = [];
 
         list_images_products();
 
