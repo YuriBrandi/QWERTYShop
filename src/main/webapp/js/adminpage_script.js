@@ -298,7 +298,7 @@ $(document).ready(function (){
                         "            <div class=\"close-mod\">\n" +
                         "                <a href=\"#\" class=\"close-modal\"><i class=\"fa-solid fa-xmark\"></i></a>\n" +
                         "            </div>\n" +
-                        "            <h3>Modifica Tastiera</h3>\n" +
+                        "            <h3>Modifica Switch</h3>\n" +
                         "            <form class=\"update-switch\">\n" +
                         "                <input type=\"hidden\" name=\"idProdotto\" value=\""+ data[i].idProdotto + "\" >"+
                         "                <div class=\"container\">\n" +

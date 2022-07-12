@@ -120,7 +120,7 @@
                             <input required type="number" class="input-txt_fld table-input" placeholder="Sconto" name="sconto" min = "0" max = "100">
                         </div>
                         <div class="col-lg-4 col-sm-12">
-                            <select required class="img-selector input-txt_fld table-input" name="img">
+                            <select class="img-selector input-txt_fld table-input" name="img" required>
                                 <option value="" disabled selected>URL Immagine</option>
                                 <%
 
@@ -211,7 +211,7 @@
                             <input required type="number" class="input-txt_fld table-input" placeholder="Sconto" name="sconto" min = "0" max = "100">
                         </div>
                         <div class="col-lg-4 col-sm-12">
-                            <select required class="img-selector input-txt_fld table-input" name="img">
+                            <select class="img-selector input-txt_fld table-input" name="img" required>
                                 <option value="" disabled selected>URL Immagine</option>
                                 <%
                                     if(lista != null)
@@ -222,7 +222,7 @@
                             </select>
                         </div>
                         <div class="col-lg-6 col-sm-12">
-                            <select required lass="input-txt_fld table-input" name="rgb">
+                            <select required class="input-txt_fld table-input" name="rgb">
                                 <option value="" disabled selected>RGB</option>
                                 <option value="1">Sì</option>
                                 <option value="0">No</option>
