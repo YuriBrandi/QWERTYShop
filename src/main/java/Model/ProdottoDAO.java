@@ -152,4 +152,50 @@ public class ProdottoDAO {
 
     }
 
+    public void doUpdateKeyboard(Prodotto p) {
+
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("UPDATE Prodotto SET nome = ?, marca = ?, prezzo = ?, percSconto = ?, descrizione = ?, pezziDisponibili = ?, pathImg = ?, isRGB = ?, keyboardSize = ?, keyboardLayout = ?, isHotSwappable = ?, tipoSwitch= ? WHERE idProdotto = ?");
+            ps.setString(1, p.getNome());
+            ps.setString(2, p.getMarca());
+            ps.setDouble(3, p.getPrezzo());
+            ps.setByte(4, p.getPercSconto());
+            ps.setString(5, p.getDescrizione());
+            ps.setInt(6, p.getPezziDisponibili());
+            ps.setString(7, p.getPathImg());
+            ps.setBoolean(8, p.isRGB());
+            ps.setByte(9, p.getKeyboardSize());
+            ps.setString(10, p.getKeyboardLayout());
+            ps.setBoolean(11, p.isHotSwappable());
+            ps.setString(12, p.getTipoSwitch());
+            ps.setInt(13, p.getIdProdotto());
+
+            int rs = ps.executeUpdate();
+
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void doDeleteProduct(int id) {
+
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("DELETE FROM Prodotto WHERE idProdotto = ?");
+            ps.setInt(1, id);
+
+            int rs = ps.executeUpdate();
+
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

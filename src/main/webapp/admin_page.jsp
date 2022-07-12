@@ -70,7 +70,7 @@
                 <a href="#" class="close-modal"><i class="fa-solid fa-xmark"></i></a>
             </div>
             <h3>Aggiungi Tastiera</h3>
-            <form action="add-keyboard" method="post" id="#add-keyboard">
+            <form class="add-keyboard">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-sm-12">
@@ -134,7 +134,7 @@
                         <div class="col-lg-4 col-sm-12">
                             <select class="input-txt_fld table-input" name="dimensione">
                                 <option value="" disabled selected>Dimensione</option>
-                                <option value="40">20%</option>
+                                <option value="20">20%</option>
                                 <option value="60">60%</option>
                                 <option value="65">65%</option>
                                 <option value="75">75%</option>
