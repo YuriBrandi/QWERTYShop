@@ -1,4 +1,4 @@
-<%--
+<%@ page import="Model.Prodotto" %><%--
   Created by IntelliJ IDEA.
   User: yuri
   Date: 15/06/22
@@ -13,7 +13,23 @@
 </head>
 <body>
 
-    <div class="container margin-from-nav">
+    <div class="container center margin-from-nav">
+
+        <%
+            ArrayList<ContenutoCarrello> cart_list = null;
+            if(session.getAttribute("carrello_guest") != null)
+                cart_list = (ArrayList<ContenutoCarrello>) session.getAttribute("carrello_guest");
+
+            boolean isCartEmpty = false;
+            if(cart_list == null || cart_list.size() == 0){
+                isCartEmpty = true;
+        %>
+            <h2 id="empty_msg">Il Carrello è vuoto.</h2>
+        <%
+            }
+            else{
+        %>
+
         <table class="table">
             <tr>
                 <th>Nome</th>
@@ -21,59 +37,49 @@
                 <th>Prezzo</th>
                 <th>Azione</th>
             </tr>
-            <tr>
-                <td>Nome 1</td>
-                <td>
-                    <button class="remove-btn circle-btn">
-                        <i class="fa-solid fa-minus"></i>
-                    </button>
-                    <input type="text" class="input-txt_fld quantity_fld" value = "1" readonly>
-                    <button class="add-btn circle-btn">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </td>
-                <td>5€</td>
-                <td>
-                    <button class="delete-btn circle-btn">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
+            <%
 
-            <tr>
-                <td>Nome 2</td>
-                <td>
-                    <button class="remove-btn circle-btn">
-                        <i class="fa-solid fa-minus"></i>
-                    </button>
-                    <input type="text" class="input-txt_fld quantity_fld" value = "1" readonly>
-                    <button class="add-btn circle-btn">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </td>
-                <td>5€</td>
-                <td>
-                    <button class="delete-btn circle-btn">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </td>
-            </tr>
+                    for(ContenutoCarrello cart_item : cart_list){
+                        Prodotto prod = cart_item.getProdotto();
+            %>
+                <tr>
+                    <td><%= prod.getNome() %></td>
+                    <td>
+                        <button class="remove-btn circle-btn">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        <input type="text" class="input-txt_fld quantity_fld" value = "<%= cart_item.getQuantita() %>" readonly>
+                        <button class="add-btn circle-btn">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </td>
+                    <input type="hidden" name="prod_id" value = "<%= prod.getIdProdotto() %>">
+                    <td class="item_price"><%= cart_item.getQuantita() * prod.getPrezzoScontato() %></td>
+                    <td>
+                        <button class="delete-btn circle-btn">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            <% }%>
         </table>
+        <% }%>
     </div>
 
     <%
-        if(session.getAttribute("carrello") != null){
+        if(!isCartEmpty){
     %>
-        <%= session.getAttribute("carrello").toString()%>
-    <%} %>
-
     <div class="container">
         <div class="center">
-            <h2>Totale: 1000€</h2>
-            <button class="form-submit"><i class="fa-solid fa-eraser"></i>&nbsp; Svuota Carrello</button>
-            <button class="form-submit"><i class="fa-solid fa-box-open"></i>&nbsp; Crea Ordine</button>
+            <h2 id="totale"></h2>
+            <button class="form-submit"><i class="fa-solid fa-eraser"></i>&nbsp; Svuota Carrello</button> </br></br>
+            <form method="get" action="create-order">
+                <button class="form-submit" type="submit"><i class="fa-solid fa-box-open"></i>&nbsp; Crea Ordine</button>
+            </form>
+
         </div>
     </div>
+    <% }%>
 
     <footer>
       <p id="credits">&copy; Della Rocca & Brandi. Tutti i diritti riservati.</p>
@@ -82,6 +88,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b2ea133689.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
-    <script src="js/cart-script.js"></script>
+    <script src="js/cart_script.js"></script>
 </body>
 </html>
