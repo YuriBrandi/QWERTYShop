@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Indirizzo;
 import Model.IndirizzoDAO;
+import Model.Utente;
 import com.google.gson.Gson;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -23,8 +24,8 @@ public class ShowAddress extends HttpServlet {
         response.setContentType("application/json");
         PrintWriter writer = response.getWriter();
 
-        String email = request.getParameter("email");
-        System.out.println(email);
+        String email = ((Utente) request.getSession().getAttribute("utente")).getEmail();
+        //System.out.println(email);
         IndirizzoDAO dao = new IndirizzoDAO();
         ArrayList<Indirizzo> list = dao.doRetrieveAllByEmail(email);
         String json = new Gson().toJson(list);

@@ -1,14 +1,8 @@
 $(document).ready(function(){
 
-    var emailString  = $('.email').text();
-    console.log(emailString);
-
     function load_addresses(){
         $.ajax({
             type: "GET",
-            data: {
-                email: emailString
-            },
             url: "show-address",
             success: function (data) {
                 //window.alert(data[0].indirizzo);
@@ -59,7 +53,6 @@ $(document).ready(function(){
             $.ajax({
                 type: "GET",
                 data: {
-                    email: emailString,
                     indirizzo: address
                 },
                 url: "add-address",
@@ -80,7 +73,6 @@ $(document).ready(function(){
       $.ajax({
           type: "GET",
           data: {
-              email: emailString,
               indirizzo: address
           },
           url: "remove-address",
@@ -99,7 +91,6 @@ $(document).ready(function(){
       $.ajax({
           type: "GET",
           data: {
-              email: emailString,
               newAddress: addressToUpdate,
               oldAddress: addressBefore
           },

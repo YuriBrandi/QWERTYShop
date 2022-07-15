@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Indirizzo;
 import Model.IndirizzoDAO;
+import Model.Utente;
 import com.google.gson.Gson;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -22,7 +23,7 @@ public class RemoveAddress extends HttpServlet {
         response.setContentType("application/json");
         PrintWriter writer = response.getWriter();
 
-        String email = request.getParameter("email");
+        String email = ((Utente) request.getSession().getAttribute("utente")).getEmail();
         String indirizzo = request.getParameter("indirizzo");
 
         IndirizzoDAO dao = new IndirizzoDAO();
