@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.CarrelloDAO;
 import Model.Utente;
 import Model.UtenteDAO;
 import jakarta.servlet.ServletException;
@@ -37,11 +38,12 @@ public class CreateUser extends HttpServlet {
         else
             if(u_DAO.isUtenteDuplicated(u)){
                 addr = "account.jsp";
-                request.setAttribute("isDuplicated", new Boolean(true));
+                request.setAttribute("info_message", "Questa mail è già registrata!");
             }
             else{
                 u_DAO.doSave(u);
                 request.getSession().setAttribute("utente", u);
+                LoginUser.mergeCart(request.getSession(), new CarrelloDAO());
                 addr = "index.jsp";
             }
 
