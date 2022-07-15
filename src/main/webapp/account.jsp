@@ -33,14 +33,9 @@
             <div id="reg_form">
                     <%}%>
 
-
-                <%
-                    if(request.getAttribute("isDuplicated") != null){
-                        if((Boolean) request.getAttribute("isDuplicated")){%>
-                           <h3 id="err_msg">Questa mail è già registrata!</h3>
-                <%}
-                    }%>
-
+                <h3 class="info_msg">
+                    ${info_message}
+                </h3>
 
                     <h3>Registrazione</h3>
 
