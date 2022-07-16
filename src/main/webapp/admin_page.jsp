@@ -175,7 +175,7 @@
                             </select>
                         </div>
                         <div class="col-lg-12 col-sm-12">
-                            <input required type="text" class="input-txt_fld table-input" placeholder="Descrizione" name="descrizione">
+                            <textarea required class="input-txt_fld table-input" placeholder="Descrizione" name="descrizione"></textarea>
                         </div>
                         <div class="center">
                             <button class="form-submit" type="submit">Invio </button>
@@ -229,7 +229,7 @@
                             </select>
                         </div>
                         <div class="col-lg-6 col-sm-12">
-                            <select required class="input-txt_fld table-input" name="tipoSwitch">
+                            <select required class="input-txt_fld table-input" name="switch">
                                 <option value="" disabled selected>Tipo Switch</option>
                                 <option value="Tactile">Tattile</option>
                                 <option value="Linear">Lineare</option>
@@ -237,7 +237,7 @@
                             </select>
                         </div>
                         <div class="col-lg-12 col-sm-12">
-                            <input required type="text" class="input-txt_fld table-input" placeholder="Descrizione" name="descrizione">
+                            <textarea required class="input-txt_fld table-input" placeholder="Descrizione" name="descrizione"></textarea>
                         </div>
                         <div class="center">
                             <button class="form-submit" type="submit">Invio </button>
@@ -307,7 +307,7 @@
                             </select>
                         </div>
                         <div class="col-lg-12 col-sm-12">
-                            <input required type="text" class="input-txt_fld table-input" placeholder="Descrizione" name="descrizione">
+                            <textarea required class="input-txt_fld table-input" placeholder="Descrizione" name="descrizione"></textarea>
                         </div>
                         <div class="center">
                             <button class="form-submit" type="submit">Invio </button>

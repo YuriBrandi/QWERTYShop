@@ -26,7 +26,7 @@ public class InfoProduct extends HttpServlet {
 
         request.setAttribute("prodotto", p);
 
-        request.getRequestDispatcher("product.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/product.jsp").forward(request, response);
 
     }
 

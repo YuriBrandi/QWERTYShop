@@ -209,7 +209,7 @@ $(document).ready(function (){
                         "                            </select>\n" +
                         "                        </div>\n" +
                         "                        <div class=\"col-lg-12 col-sm-12\">\n" +
-                        "                            <input type=\"text\" class=\"input-txt_fld table-input\" placeholder=\"Descrizione\" name=\"descrizione\" value=\" "+ data[i].descrizione + "\">\n" +
+                        "                            <textarea class=\"input-txt_fld table-input\" placeholder=\"Descrizione\" name=\"descrizione\">" + data[i].descrizione + "</textarea>\n" +
                         "                        </div>\n" +
                         "                        <div class=\"center\">\n" +
                         "                            <button class=\"form-submit\" type=\"submit\">Invio </button>\n" +
@@ -332,7 +332,7 @@ $(document).ready(function (){
                         "                            </select>\n" +
                         "                        </div>\n" +
                         "                        <div class=\"col-lg-12 col-sm-12\">\n" +
-                        "                            <input type=\"text\" class=\"input-txt_fld table-input\" placeholder=\"Descrizione\" name=\"descrizione\" value=\" "+ data[i].descrizione + "\">\n" +
+                        "                            <textarea class=\"input-txt_fld table-input\" placeholder=\"Descrizione\" name=\"descrizione\">" + data[i].descrizione + "</textarea>\n" +
                         "                        </div>\n" +
                         "                        <div class=\"center\">\n" +
                         "                            <button class=\"form-submit\" type=\"submit\">Invio </button>\n" +
@@ -511,7 +511,7 @@ $(document).ready(function (){
                         "                            </select>\n" +
                         "                        </div>\n" +
                         "                        <div class=\"col-lg-12 col-sm-12\">\n" +
-                        "                            <input type=\"text\" class=\"input-txt_fld table-input\" placeholder=\"Descrizione\" name=\"descrizione\" value=\" "+ data[i].descrizione + "\">\n" +
+                        "                            <textarea class=\"input-txt_fld table-input\" placeholder=\"Descrizione\" name=\"descrizione\">" + data[i].descrizione + "</textarea>\n" +
                         "                        </div>\n" +
                         "                        <div class=\"center\">\n" +
                         "                            <button class=\"form-submit\" type=\"submit\">Invio </button>\n" +
@@ -600,6 +600,8 @@ $(document).ready(function (){
     $("body").on('submit', '.update-keyboard', function (e) {
 
         e.preventDefault();
+        $('.modal-overlay, .modal-content').removeClass('active');
+        $('body').removeClass('no-scroll');
 
         $.ajax({
             url: "update-keyboard",
@@ -614,7 +616,10 @@ $(document).ready(function (){
     });
 
     $("body").on('submit', '.add-keyboard', function (e) {
+
         e.preventDefault();
+        $('.modal-overlay, .modal-content').removeClass('active');
+        $('body').removeClass('no-scroll');
 
         var form = $(this);
 
@@ -626,6 +631,7 @@ $(document).ready(function (){
                 form.trigger('reset');
                 cleanup_table_keyboard();
                 load_keyboards();
+
             }
         });
 
@@ -648,13 +654,19 @@ $(document).ready(function (){
                 load_switchs();
                 cleanup_table_keycaps();
                 load_keycaps();
+
+                $(this).parents('.modal-overlay').removeClass('active');
+                $('body').removeClass('no-scroll');
             }
         });
 
     });
 
     $("body").on('submit', '.add-switch', function (e) {
+
         e.preventDefault();
+        $('.modal-overlay, .modal-content').removeClass('active');
+        $('body').removeClass('no-scroll');
 
         var form = $(this);
 
@@ -674,6 +686,10 @@ $(document).ready(function (){
     $("body").on('submit', '.update-switch', function (e) {
 
         e.preventDefault();
+        $('.modal-overlay, .modal-content').removeClass('active');
+        $('body').removeClass('no-scroll');
+
+        console.log($(this).serialize().text());
 
         $.ajax({
             url: "update-switch",
@@ -682,6 +698,9 @@ $(document).ready(function (){
             success: function (data) {
                 cleanup_table_switch();
                 load_switchs();
+
+                $(this).parents('.modal-overlay').removeClass('active');
+                $('body').removeClass('no-scroll');
             }
         });
 
@@ -689,6 +708,8 @@ $(document).ready(function (){
 
     $("body").on('submit', '.add-keycaps', function (e) {
         e.preventDefault();
+        $('.modal-overlay, .modal-content').removeClass('active');
+        $('body').removeClass('no-scroll');
 
         var form = $(this);
 
@@ -700,6 +721,9 @@ $(document).ready(function (){
                 form.trigger('reset');
                 cleanup_table_keycaps();
                 load_keycaps();
+
+                $(this).parents('.modal-overlay').removeClass('active');
+                $('body').removeClass('no-scroll');
             }
         });
 
@@ -708,6 +732,8 @@ $(document).ready(function (){
     $("body").on('submit', '.update-keycap', function (e) {
 
         e.preventDefault();
+        $('.modal-overlay, .modal-content').removeClass('active');
+        $('body').removeClass('no-scroll');
 
         $.ajax({
             url: "update-keycap",
@@ -716,6 +742,10 @@ $(document).ready(function (){
             success: function (data) {
                 cleanup_table_keycaps();
                 load_keycaps();
+
+                console.log($(this).parents());
+                $(this).parents('.modal-overlay').removeClass('active');
+                $('body').removeClass('no-scroll');
             }
         });
 
