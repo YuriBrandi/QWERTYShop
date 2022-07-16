@@ -78,7 +78,7 @@ public class IndirizzoDAO {
             ps.setString(3, oldAddress);
 
             if (ps.executeUpdate() != 1) {
-                throw new RuntimeException("INSERT error.");
+                throw new RuntimeException("UPDATE error.");
             }
             ps.close();
 
