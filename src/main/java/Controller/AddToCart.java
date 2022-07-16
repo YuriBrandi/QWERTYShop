@@ -66,7 +66,6 @@ public class AddToCart extends HttpServlet {
             session.setAttribute("carrello_guest", cart_list);
 
         }
-
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        response.sendRedirect("./");
     }
 }

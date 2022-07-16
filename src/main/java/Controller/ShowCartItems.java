@@ -21,6 +21,11 @@ public class ShowCartItems extends HttpServlet {
         response.setContentType("application/json");
         PrintWriter writer = response.getWriter();
 
+        /*
+            Permette di utilizzare la servlet sia come include() per ottenere i prodotti in CreaOrdine (in tal caso non deve stampare json, altrimenti il forward non funziona)
+            Oppure per la visualizzazione lato client del carrello (inviando i dati in formato json)
+         */
+        boolean sendAsJson = Boolean.parseBoolean(request.getParameter("sendAsJson"));
         HttpSession session = request.getSession();
 
         ArrayList<Carrello> cart_list;
@@ -33,8 +38,10 @@ public class ShowCartItems extends HttpServlet {
         else if (session.getAttribute("carrello_guest") != null)
             cart_list = (ArrayList<Carrello>) session.getAttribute("carrello_guest");
         else {
-            writer.print("{\"empty_cart\": " + true + "}");
-            writer.flush();
+            if(sendAsJson){
+                writer.print("{\"empty_cart\": " + true + "}");
+                writer.flush();
+            }
             return;
         }
 
@@ -57,10 +64,15 @@ public class ShowCartItems extends HttpServlet {
 
         System.out.println(json_ris);
 
-        request.setAttribute("json_cart", json_ris);
-        request.setAttribute("prezzo_tot", prezzoTot);
-        writer.print(json_ris);
-        writer.flush();
+        if(!sendAsJson){
+            request.setAttribute("json_cart", json_ris);
+            request.setAttribute("prezzo_tot", prezzoTot);
+        }
+        else{
+            writer.print(json_ris);
+            writer.flush();
+        }
 
     }
+
 }
