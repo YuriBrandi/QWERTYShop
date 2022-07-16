@@ -1,11 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="Model.Prodotto" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%@ include file="WEB-INF/header.jsp"%>
 
 <html>
 <head>
 
     <%
+        DecimalFormat df = new DecimalFormat("0.00");
         Prodotto p = (Prodotto) request.getAttribute("prodotto");
     %>
     <title><%=p.getNome()%></title>
@@ -58,7 +60,7 @@
                 <%} else {%>
                     <h3>
                         <b>Prezzo:</b> <del><%= p.getPrezzo()%>&euro;</del>  (-<%= p.getPercSconto() %>%)
-                        <i class="fa-solid fa-arrow-right"></i>  <%= p.getPrezzoScontato()%>&euro;
+                        <i class="fa-solid fa-arrow-right"></i>  <%= df.format(p.getPrezzoScontato())%>&euro;
                     </h3>
                 <%}%>
                 <form method="get" action="add-to-cart">
@@ -107,6 +109,9 @@
         </div>
 
     </div>
+    <footer>
+        <p id="credits">&copy; Della Rocca & Brandi. Tutti i diritti riservati.</p>
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b2ea133689.js" crossorigin="anonymous"></script>

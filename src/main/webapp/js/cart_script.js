@@ -30,7 +30,7 @@ $(document).ready(function () {
                                 "                        </button>" +
                                 "                    </td>" +
                                 "                    <input type=\"hidden\" name=\"prod_id\" value = \"" + data[i].id_prod + "\">" +
-                                "                    <td class=\"item_price\">" + data[i].qnty_prod * data[i].prezzo_prod + "&euro;</td>" +
+                                "                    <td class=\"item_price\">" + (data[i].qnty_prod * data[i].prezzo_prod).toFixed(2) + "&euro;</td>" +
                                 "                    <td>" +
                                 "                        <button class=\"delete-btn circle-btn\">" +
                                 "                            <i class=\"fa-solid fa-trash\"></i>" +

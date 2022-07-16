@@ -29,7 +29,7 @@ $(document).ready(function(){
             var lenght = data.length;
             console.log(length);
 
-            for (var i = 0; i < lenght; i++) {
+            for (var i = lenght - 1; i > lenght - 9; i--) {
                 if(data[i].percSconto == 0)
                     $('.products').append("" +
                         "              <div class=\"col-lg-3 col-sm-6 col-xs-12 center-div\">" +
@@ -56,7 +56,7 @@ $(document).ready(function(){
                             "                           <h3>" + data[i].nome + "</h3>" +
                             "                           <p><del>" + data[i].prezzo + "&euro;" +
                             "                           </del> <i class=\"fa-solid fa-arrow-right\"></i>" +
-                            "                          " + finPrice + "&euro; (-" + data[i].percSconto + "%)</p>" +
+                            "                          " + finPrice.toFixed(2) + "&euro; (-" + data[i].percSconto + "%)</p>" +
                             "                       </div>" +
                             "                   </div>" +
                         "                   </form>" +
