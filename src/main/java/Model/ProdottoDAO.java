@@ -377,5 +377,44 @@ public class ProdottoDAO {
 
     }
 
+    /*public boolean doVerificaDisponibilita(int idProdotto, short qnty) {
+        try (Connection connection = ConPool.getConnection()) {
 
+            PreparedStatement ps = connection.prepareStatement("SELECT pezziDisponibili FROM Prodotto WHERE idProdotto = ?");
+
+            ps.setInt(1, idProdotto);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                if (rs.getShort(1) >= qnty)
+                    return true;
+            }
+
+            ps.close();
+            return false;
+
+        } catch (SQLException e) {
+            return false;
+        }
+
+    }*/
+
+    public void doUpddateDisponibilita(int idProdotto, short qnty) {
+        try (Connection connection = ConPool.getConnection()) {
+
+            PreparedStatement ps = connection.prepareStatement("UPDATE Prodotto SET pezziDisponibili = pezziDisponibili - ? WHERE idProdotto = ?");
+            ps.setShort(1, qnty);
+            ps.setInt(2, idProdotto);
+
+            if (ps.executeUpdate() != 1) {
+                throw new RuntimeException("UPDATE error.");
+            }
+
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
