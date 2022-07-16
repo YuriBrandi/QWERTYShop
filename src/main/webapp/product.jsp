@@ -64,19 +64,40 @@
                 <form method="get" action="add-to-cart">
                     <input type="hidden" name="id" value="<%= p.getIdProdotto()%>">
 
-                    <button type="button" class="remove-btn circle-btn">
+                    <button type="button" class="remove-btn circle-btn" disabled>
                         <i class="fa-solid fa-minus"></i>
                     </button>
                     <input type="text" class="input-txt_fld quantity_fld" name="qnty" value = "1" readonly>
+                    <input type="hidden" name="disp" value = "<%= p.getPezziDisponibili()%>">
                     <button type="button" class="add-btn circle-btn">
                         <i class="fa-solid fa-plus"></i>
                     </button>
                     &nbsp;&nbsp;
 
-                    <% if(p.getPezziDisponibili() > 0){ %>
+                    <%
+                        boolean posso_aggiungere = true;
+                        int inCart_qnty = 0;
+
+                        for(Carrello item: cart_list)
+                            if (item.getIdProdotto() == p.getIdProdotto()) {
+                                if(item.getQuantita() >= p.getPezziDisponibili())
+                                    posso_aggiungere = false;
+
+                                inCart_qnty = item.getQuantita();
+                                break;
+                            }
+                    %>
+                    <input type="hidden" name="cart_qnty" value = "<%= inCart_qnty %>">
+                    <%
+                        if(p.getPezziDisponibili() > 0 && posso_aggiungere){
+                    %>
+
                         <button class="form-submit" type="submit"><i class="fa-solid fa-cart-arrow-down"></i>  Aggiungi al carrello</button>
                         <% if(p.getPezziDisponibili() < 10)
-                            out.write("</br></br>Affrettati! Solo " + p.getPezziDisponibili() + " pezzi disponibili.");
+                            if(p.getPezziDisponibili() == 1)
+                                out.write("</br></br>Affrettati! Ultimo disponibile!");
+                            else
+                                out.write("</br></br>Affrettati! Solo " + p.getPezziDisponibili() + " pezzi disponibili.");
                     } else
                         out.write("Non disponibile");%>
                 </form>
@@ -87,7 +108,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b2ea133689.js" crossorigin="anonymous"></script>
-    <script src="js/cart-script.js"></script>
+    <script src="js/productpage_script.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
