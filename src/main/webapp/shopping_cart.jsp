@@ -1,4 +1,4 @@
-<%@ page import="Model.Prodotto" %><%--
+<%@ page import="Model.*" %><%--
   Created by IntelliJ IDEA.
   User: yuri
   Date: 15/06/22
@@ -15,21 +15,6 @@
 
     <div class="container center margin-from-nav">
 
-        <%
-            ArrayList<ContenutoCarrello> cart_list = null;
-            if(session.getAttribute("carrello_guest") != null)
-                cart_list = (ArrayList<ContenutoCarrello>) session.getAttribute("carrello_guest");
-
-            boolean isCartEmpty = false;
-            if(cart_list == null || cart_list.size() == 0){
-                isCartEmpty = true;
-        %>
-            <h2 id="empty_msg">Il Carrello è vuoto.</h2>
-        <%
-            }
-            else{
-        %>
-
         <table class="table">
             <tr>
                 <th>Nome</th>
@@ -37,49 +22,37 @@
                 <th>Prezzo</th>
                 <th>Azione</th>
             </tr>
-            <%
-
-                    for(ContenutoCarrello cart_item : cart_list){
-                        Prodotto prod = cart_item.getProdotto();
-            %>
-                <tr>
-                    <td><%= prod.getNome() %></td>
-                    <td>
-                        <button class="remove-btn circle-btn">
-                            <i class="fa-solid fa-minus"></i>
-                        </button>
-                        <input type="text" class="input-txt_fld quantity_fld" value = "<%= cart_item.getQuantita() %>" readonly>
-                        <button class="add-btn circle-btn">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-                    </td>
-                    <input type="hidden" name="prod_id" value = "<%= prod.getIdProdotto() %>">
-                    <td class="item_price"><%= cart_item.getQuantita() * prod.getPrezzoScontato() %></td>
-                    <td>
-                        <button class="delete-btn circle-btn">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            <% }%>
         </table>
-        <% }%>
     </div>
 
-    <%
-        if(!isCartEmpty){
-    %>
+
+
     <div class="container">
         <div class="center">
             <h2 id="totale"></h2>
-            <button class="form-submit"><i class="fa-solid fa-eraser"></i>&nbsp; Svuota Carrello</button> </br></br>
+            <button id="svuota_cart" class="form-submit"><i class="fa-solid fa-eraser"></i>&nbsp; Svuota Carrello</button> </br></br>
             <form method="get" action="create-order">
+                <%
+                  if(session.getAttribute("utente") != null){
+                      Utente usr = (Utente) session.getAttribute("utente");
+                      ArrayList<Indirizzo> add_list = new IndirizzoDAO().doRetrieveAllByEmail(usr.getEmail());
+                %>
+                    <select name="sel_addr" class="input-txt_fld" required>
+                        <option value="inv" selected>--Seleziona un indirizzo di spedizione--</option>
+                        <%
+                            for(Indirizzo ind : add_list)
+                                out.write("<option value=\"" + ind.indirizzo + "\">" + ind.indirizzo + "</option>");
+                        %>
+                    </select>
+                    </br></br>
+                <%}%>
                 <button class="form-submit" type="submit"><i class="fa-solid fa-box-open"></i>&nbsp; Crea Ordine</button>
             </form>
-
+            <p id="err_msg">
+                ${error_message}
+            </p>
         </div>
     </div>
-    <% }%>
 
     <footer>
       <p id="credits">&copy; Della Rocca & Brandi. Tutti i diritti riservati.</p>

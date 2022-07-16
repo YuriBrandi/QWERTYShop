@@ -1,8 +1,6 @@
 package Controller;
 
-import Model.ContenutoCarrello;
-import Model.IndirizzoDAO;
-import com.google.gson.Gson;
+import Model.*;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -14,47 +12,61 @@ import java.util.ArrayList;
 @WebServlet("/add-to-cart")
 public class AddToCart extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         request.setCharacterEncoding("utf8");
         response.setContentType("application/json");
-        PrintWriter writer = response.getWriter();
 
         int idProdotto = Integer.parseInt(request.getParameter("id"));
         short quantita = Short.parseShort(request.getParameter("qnty"));
 
         HttpSession session = request.getSession();
+
+        Carrello cart_item = new Carrello();
+        cart_item.setIdProdotto(idProdotto);
+        cart_item.setQuantita(quantita);
+
         //Verifica sessione utente
-        if(session.getAttribute("utente") == null) { //(carrello modalità guest)
+        if(session.getAttribute("utente") != null){
+            cart_item.setEmail(((Utente) session.getAttribute("utente")).getEmail());
 
-            ContenutoCarrello cart_item = new ContenutoCarrello();
-            cart_item.setIdProdotto(idProdotto);
-            cart_item.setQuantita(quantita);
+            CarrelloDAO cart_dao = new CarrelloDAO();
+            Carrello temp_item = cart_dao.doRetrieveByIdEmail(cart_item.getEmail(), idProdotto);
 
-            ArrayList<ContenutoCarrello> cart_list = null;
-            //Gson gson = new Gson();
-            boolean is_in_cart = false;
-            if(session.getAttribute("carrello") != null) {
-                //cart_list = gson.fromJson(session.getAttribute("carrello").toString(), ArrayList.class);
-                cart_list = (ArrayList<ContenutoCarrello>) session.getAttribute("carrello");
-                for(ContenutoCarrello item : cart_list){
+            if(temp_item != null)
+                cart_dao.doUpdateQuantity(cart_item, (short) (cart_item.getQuantita() + temp_item.getQuantita()));
+            else
+                cart_dao.doInsertItem(cart_item);
+
+        }
+        else { //(carrello modalità guest) Questo è il momento di creazione del carrello guest
+
+
+            ArrayList<Carrello> cart_list;
+            if(session.getAttribute("carrello_guest") != null) {
+                boolean is_in_cart = false;
+                cart_list = (ArrayList<Carrello>) session.getAttribute("carrello_guest");
+                for(Carrello item : cart_list){
                     if(item.getIdProdotto() == cart_item.getIdProdotto()){
-                        item.setQuantita((short) (item.getQuantita() + cart_item.getQuantita()));
                         is_in_cart = true;
+                        item.setQuantita((short) (item.getQuantita() + cart_item.getQuantita()));
+
+                        break;
                     }
                 }
                 if(!is_in_cart)
-                    cart_list.add(cart_item);
+                   cart_list.add(cart_item);
+
             }
             else {
                 cart_list = new ArrayList<>();
                 cart_list.add(cart_item);
             }
 
-            //String json = gson.toJson(cart_item);
-            session.setAttribute("carrello", cart_list);
+            session.setAttribute("carrello_guest", cart_list);
 
         }
 
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 }

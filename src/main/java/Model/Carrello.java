@@ -1,6 +1,6 @@
 package Model;
 
-public class ContenutoCarrello {
+public class Carrello {
     private String email;
     private int idProdotto;
     private short quantita;

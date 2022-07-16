@@ -224,7 +224,14 @@ del {
     border: .15rem solid #262626;
 }
 
-.input-txt_fld[readonly]:hover{border: none}
+.input-txt_fld[readonly]:hover{
+    border: none
+}
+
+/*Per Cart*/
+select .input-txt_fld{
+    width: 50%;
+}
 
 .show_hide_psw {
     cursor: pointer;
@@ -264,8 +271,21 @@ del {
     color: #262626;
 }
 
+.form-submit:disabled {
+    background-color: #f3f3f3;
+    color: #d6d6d6;
+}
+
 #err_msg {
     color: darkred;
+}
+
+.info_msg {
+    color: darkred;
+}
+
+#succ_msg {
+    color: darkgreen;
 }
 /*
     SEARCH BAR
@@ -325,6 +345,11 @@ del {
     background-color: #FFCB73;
     color: #262626;
 
+}
+
+.circle-btn:disabled {
+    background-color: #f3f3f3;
+    color: #d6d6d6;
 }
 
 /*h2 form .circle-btn{
@@ -556,10 +581,6 @@ footer {
     transition: opacity 0.5s ease-in-out, visiblity 0.5s ease-in-out;
 }
 
-.modal-overlay.active {
-    visibility: visible;
-    opacity: 0.8;
-}
 .modal-overlay.active {
     visibility: visible;
     opacity: 1 !important;
