@@ -1,4 +1,7 @@
 <%@ page import="Model.Utente" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Model.Carrello" %>
+<%@ page import="Model.CarrelloDAO" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
@@ -35,7 +38,22 @@
                         Login
                     <%}%>
             </b></a></li>
-            <li class="small-screen-option"><a href="shopping_cart.jsp"><b>Carrello (0)</b></a></li>
+            <%
+                int cont = 0;
+                ArrayList<Carrello> cart_list = null;
+                if(u != null)
+                   cart_list = new CarrelloDAO().doRetrieveAllByEmail(u.getEmail());
+                else
+                if(session.getAttribute("carrello_guest") != null)
+                    cart_list = (ArrayList<Carrello>) session.getAttribute("carrello_guest");
+
+                if(cart_list != null)
+                    for (Carrello cart_item : cart_list) {
+                        cont += cart_item.getQuantita();
+                    }
+
+            %>
+            <li class="small-screen-option"><a href="shopping_cart.jsp"><b>Carrello (<%= cont %>)</b></a></li>
             <li><a href="#"><b>Tastiere</b></a></li>
             <li><a href="#"><b>Switch</b></a></li>
             <li><a href="#"><b>Keycaps</b></a></li>
@@ -67,7 +85,9 @@
         <a href="shopping_cart.jsp"><i class="fa-solid fa-cart-shopping"></i></a>
     </div>
     <div class="shop-button-overlay">
-        <span id="cart-count">0</span>
+        <span id="cart-count">
+            <%= cont %>
+        </span>
     </div>
 
 </nav>
