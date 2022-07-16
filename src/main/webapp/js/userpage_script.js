@@ -8,11 +8,11 @@ $(document).ready(function(){
                 //window.alert(data[0].indirizzo);
                 console.log(Object.keys(data).length);
                 if(data == undefined || !data.length)
-                    $('.table').append("<tr><td>Non hai indirizzi registrati</td><td></td></tr>");
+                    $('.table:first').append("<tr><td>Non hai indirizzi registrati</td><td></td></tr>");
                 else {
                     var lenght = Object.keys(data).length;
                     for (var i = 0; i < lenght; i++) {
-                        $('.table').append(
+                        $('.table:first').append(
                             "<tr>" +
                             "   <td>" +
                             "       <input type=\"text\" class=\"input-txt_fld add_fld\" value='" + data[i].indirizzo + "'></td>" +
@@ -36,8 +36,8 @@ $(document).ready(function(){
             Elimina tutti i tr della tabella tranne
             la riga righe_tab[0] (ovvero l'intestazione)
          */
-        var righe_tab = $('.table tr');
-        console.log(righe_tab.length);
+        var righe_tab = $('.table:first tr');
+        //console.log(righe_tab.length);
         for(var i = 1; i < righe_tab.length; i++)
             righe_tab[i].remove();
     }
@@ -65,7 +65,7 @@ $(document).ready(function(){
         address_tag.val("");
     });
 
-  $('.table').on('click', '.delete-btn', function(){
+  $('.table:first').on('click', '.delete-btn', function(){
 
       var address = $(this).closest('tr').find('.input-txt_fld').val();
       //var row = $(this).closest('tr');
@@ -84,7 +84,7 @@ $(document).ready(function(){
 
   });
 
-  $('.table').on('click', '.save-btn', function () {
+  $('.table:first').on('click', '.save-btn', function () {
       var addressToUpdate = $(this).closest('tr').find('.input-txt_fld').val();
       var addressBefore = $(this).closest('tr').find('.hidden_fld').val();
 
@@ -101,13 +101,53 @@ $(document).ready(function(){
           }
       });
 
-      //Alternativa
-      /*
-      $.get("remove-address?email=" + emailString + "&indirizzo=" + address,
-          function(status){
-              console.log(status);
-              //console.log("Data: " + data + "\nStatus: " + status);
-          });*/
-
   });
+
+    function cleanup_modal(){
+
+        var righe_tab = $('.modal-content .table tr');
+        console.log(righe_tab);
+        for(var i = 1; i < righe_tab.length; i++)
+            righe_tab[i].remove();
+    }
+
+
+  $('.mostra_dett').click(function (){
+      var idOrdine = $(this).parent().siblings('.id_ord').html();
+      var totOrdine = $(this).parent().siblings('.tot_ord').html()
+
+      $.ajax({
+          type: "GET",
+          data: {
+              idOrdine: idOrdine
+          },
+          url: "show-prod-ordine",
+          success: function (data) {
+
+              $('.modal-overlay').addClass('active');
+              $('body').addClass('no-scroll');
+              $('.modal-content').children('h2').html("Ordine: #" + idOrdine);
+              $('.modal-content').children('h3').html("Totale: " + totOrdine);
+
+              cleanup_modal();
+
+              for(var i = 0; i < data.length; i++){
+
+                  $('.modal-content').children('.table').append(
+                      "<tr>" +
+                      "<td>" + data[i].nome_prod + "</td>" +
+                      "<td>" + data[i].qnty_prod + "</td>" +
+                      "</tr>"
+                  )
+              }
+          }
+      });
+  });
+
+    $("body").on('click', '.close-modal', function (e) {
+        e.preventDefault();
+        $('.modal-overlay').removeClass('active');
+        $('body').removeClass('no-scroll');
+    });
+
 });

@@ -78,14 +78,16 @@
                         boolean posso_aggiungere = true;
                         int inCart_qnty = 0;
 
-                        for(Carrello item: cart_list)
-                            if (item.getIdProdotto() == p.getIdProdotto()) {
-                                if(item.getQuantita() >= p.getPezziDisponibili())
-                                    posso_aggiungere = false;
 
-                                inCart_qnty = item.getQuantita();
-                                break;
-                            }
+                        if(cart_list != null)
+                            for(Carrello item: cart_list)
+                                if (item.getIdProdotto() == p.getIdProdotto()) {
+                                    if(item.getQuantita() >= p.getPezziDisponibili())
+                                        posso_aggiungere = false;
+
+                                    inCart_qnty = item.getQuantita();
+                                    break;
+                                }
                     %>
                     <input type="hidden" name="cart_qnty" value = "<%= inCart_qnty %>">
                     <%

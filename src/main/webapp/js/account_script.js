@@ -1,4 +1,4 @@
-$(document).ready(function(){
+  $(document).ready(function(){
 
     $('.show_hide_psw').click(function(){
 
