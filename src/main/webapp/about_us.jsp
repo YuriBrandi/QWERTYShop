@@ -12,14 +12,14 @@
         <h2>Progetto a cura di:</h2>
         <ul>
             <li>
-                <h1>Brandi Yuri</h1>
-                <a class="web-ref" href="https://github.com/YuriBrandi"><i class="fa-brands fa-github"></i></a>
-                <a class="web-ref" href="https://www.yuribrandi.com/"><i class="fa-solid fa-earth-europe"></i></a>
-            </li>
-            <li>
                 <h1>Della Rocca Roberto</h1>
                 <a class="web-ref" href="https://github.com/robertodr01"><i class="fa-brands fa-github"></i></a>
                 <a class="web-ref" href="https://robertodr.altervista.org/"><i class="fa-solid fa-earth-europe"></i></a>
+            </li>
+            <li>
+                <h1>Brandi Yuri</h1>
+                <a class="web-ref" href="https://github.com/YuriBrandi"><i class="fa-brands fa-github"></i></a>
+                <a class="web-ref" href="https://www.yuribrandi.com/"><i class="fa-solid fa-earth-europe"></i></a>
             </li>
         </ul>
     </div>

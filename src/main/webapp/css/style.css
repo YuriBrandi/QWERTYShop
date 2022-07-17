@@ -207,6 +207,14 @@ a.web-ref i:hover {
     color: #FFCB73;
 }
 
+.latest-products a {
+    color: #262626;
+    transition-duration: 0.4s;
+}
+.latest-products a:hover {
+    color: #FFCB73;
+}
+
 /*
     FORM Login & Registrazione
  */
