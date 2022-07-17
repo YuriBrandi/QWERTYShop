@@ -5,7 +5,7 @@ $(document).ready(function (){
 
     var search_query = "";
     var categ;
-    var isRgb, dim_tast, layout_tast, tipo_switch, keycap_prof;
+    var isRgb, isHowSwap, dim_tast, layout_tast, tipo_switch, keycap_prof;
 
     $.ajax({
         type: "GET",
@@ -36,34 +36,56 @@ $(document).ready(function (){
 
         if(isRgb != undefined && isRgb.length != 0)
             lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
+                console.log("filtro rgb");
                 return prod.RGB == isRgb;
             });
 
         if(categ != undefined && categ.length != 0){
 
             lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
+                console.log("filtro categ");
                 return prod.categoria == categ;
             });
 
-            if(dim_tast != undefined && dim_tast.length != 0)
-                lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
-                    return prod.keyboardSize == dim_tast;
-                });
+            switch(categ){
+                case "Tastiera":{
 
-            if(layout_tast != undefined && layout_tast.length != 0)
-                lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
-                    return prod.keyboardLayout == layout_tast;
-                });
+                    if(isHowSwap != undefined && isHowSwap.length != 0)
+                        lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
+                            console.log("filtro isHowSwap");
+                            return prod.hotSwappable == isHowSwap;
+                        });
 
-            if(tipo_switch != undefined && tipo_switch.length != 0)
-                lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
-                    return prod.tipoSwitch == tipo_switch;
-                });
+                    if(dim_tast != undefined && dim_tast.length != 0)
+                    lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
+                        console.log("filtro dim");
+                        return prod.keyboardSize == dim_tast;
+                    });
 
-            if(keycap_prof != undefined && keycap_prof.length != 0)
-                lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
-                    return prod.keycapProfile == keycap_prof;
-                });
+                    if(layout_tast != undefined && layout_tast.length != 0)
+                        lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
+                            console.log("filtro layout_tast");
+                            return prod.keyboardLayout == layout_tast;
+                        });
+
+                }  //no break per attributi in comune
+                case "Switch":{
+                    if(tipo_switch != undefined && tipo_switch.length != 0)
+                        lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
+                            console.log("filtro tipo_switch");
+                            return prod.tipoSwitch == tipo_switch;
+                        });
+                }break;
+                case "Keycap":{
+
+                    if(keycap_prof != undefined && keycap_prof.length != 0)
+                        lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
+                            console.log("filtro keyap_pfo");
+                            return prod.keycapProfile == keycap_prof;
+                        });
+                }break;
+            }
+
         }
 
         console.log("Length finale: " + lista_prodotti_filtrati.length);
@@ -191,35 +213,35 @@ $(document).ready(function (){
     });
 
     $('select[name = hotswappable]').change(function (){
-        isRgb = $(this).val();
+        isho = $(this).val();
 
         applica_filtri();
         show_prod(lista_prodotti_filtrati);
     });
 
     $('select[name = dimensione]').change(function (){
-        isRgb = $(this).val();
+        dim_tast = $(this).val();
 
         applica_filtri();
         show_prod(lista_prodotti_filtrati);
     });
 
     $('select[name = layout]').change(function (){
-        isRgb = $(this).val();
+        layout_tast = $(this).val();
 
         applica_filtri();
         show_prod(lista_prodotti_filtrati);
     });
 
     $('select[name = switch]').change(function (){
-        isRgb = $(this).val();
+        tipo_switch = $(this).val();
 
         applica_filtri();
         show_prod(lista_prodotti_filtrati);
     });
 
     $('select[name = profilo]').change(function (){
-        isRgb = $(this).val();
+        keycap_prof = $(this).val();
 
         applica_filtri();
         show_prod(lista_prodotti_filtrati);
