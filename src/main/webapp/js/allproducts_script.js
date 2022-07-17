@@ -31,7 +31,7 @@ $(document).ready(function (){
         $('.products').html("");
 
         if(prods.length == 0)
-            $('.info_msg').html("Nessun prodotto trovato");
+            $('.info_msg').html("La ricerca non ha prodotto risultati");
         else
             for (var i = 0; i < prods.length; i++) {
                 if(prods[i].percSconto == 0)

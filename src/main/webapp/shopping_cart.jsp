@@ -38,7 +38,7 @@
                       ArrayList<Indirizzo> add_list = new IndirizzoDAO().doRetrieveAllByEmail(usr.getEmail());
                 %>
                     <select name="sel_addr" class="input-txt_fld" required>
-                        <option value="inv" selected>--Seleziona un indirizzo di spedizione--</option>
+                        <option value="inv" disabled selected>Seleziona un indirizzo di spedizione</option>
                         <%
                             for(Indirizzo ind : add_list)
                                 out.write("<option value=\"" + ind.indirizzo + "\">" + ind.indirizzo + "</option>");

@@ -23,6 +23,33 @@
                 </div>
             </form>
         </div>
+        <div class="filter row center">
+            <div class="col-lg-3 col-sm-12">
+                <select class="input-txt_fld table-input" name="categ">
+                    <option value="" disabled selected>Categoria</option>
+                    <option value="Keyboard">Tastiere</option>
+                    <option value="Switch">Switch</option>
+                    <option value="Keycap">Keycap</option>
+                    <option value="">Tutte</option>
+                </select>
+            </div>
+            <div class="col-lg-2 col-sm-12">
+                <select class="input-txt_fld table-input" name="rgb">
+                    <option value="" disabled selected>RGB</option>
+                    <option value="1">Sì</option>
+                    <option value="0">No</option>
+                    <option value="">Tutti</option>
+                </select>
+            </div>
+            <div class="col-lg-2 col-sm-12">
+                <select class="input-txt_fld table-input" name="rgb">
+                    <option value="" disabled selected>RGB</option>
+                    <option value="1">Sì</option>
+                    <option value="0">No</option>
+                    <option value="">Tutti</option>
+                </select>
+            </div>
+        </div>
         <h3 class="info_msg"></h3>
     </div>
 
