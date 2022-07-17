@@ -75,9 +75,10 @@ $(document).ready(function (){
     });
 
     $('.search-txt_box').on('input', function() {
-
         applica_filtri($(this).val());
         console.log(lista_prodotti_filtrati.length);
         show_prod(lista_prodotti_filtrati);
     });
+
+
 });

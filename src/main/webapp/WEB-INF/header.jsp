@@ -55,11 +55,8 @@
             %>
             <li class="small-screen-option"><a href="shopping_cart.jsp"><b>Carrello (<%= cont %>)</b></a></li>
             <li><a href="all_products.jsp"><b>Tutti i prodotti</b></a></li>
-            <li><a href="#"><b>Tastiere</b></a></li>
-            <li><a href="#"><b>Switch</b></a></li>
-            <li><a href="#"><b>Keycaps</b></a></li>
             <li><a href="about_us.jsp"><b>About us</b></a></li>
-            <li><a href="#"><b>Contattaci</b></a></li>
+            <li><a href="about_us.jsp"><b>Contattaci</b></a></li>
         </ul>
     </div>
     <div class="container-logo">
