@@ -44,7 +44,7 @@
                     case "Keycap": {
                 %>
                     <h3><b>Materiale</b>: <%= p.getKeycapMaterial()%></h3>
-                    <h3><b>Profilo</b>: <%= p.getKeycapProfile()%>%</h3>
+                    <h3><b>Profilo</b>: <%= p.getKeycapProfile()%></h3>
                 <%
                         }break;
                     }%>

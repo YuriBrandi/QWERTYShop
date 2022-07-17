@@ -26,10 +26,10 @@ $(document).ready(function(){
         url: "show-products",
         success: function (data) {
             //window.alert(data[0].indirizzo);
-            var lenght = data.length;
-            console.log(length);
+            var len = data.length;
+            console.log(len);
 
-            for (var i = lenght - 1; i > lenght - 9; i--) {
+            for (var i = len - 1; i > len - 9; i--) {
                 if(data[i].percSconto == 0)
                     $('.products').append("" +
                         "              <div class=\"col-lg-3 col-sm-6 col-xs-12 center-div\">" +
@@ -67,6 +67,6 @@ $(document).ready(function(){
     });
 
     $('.latest-products').on('click', '.card', function () {
-        $(this).closest('form').submit()
+        $(this).parents('form').submit()
     });
 });

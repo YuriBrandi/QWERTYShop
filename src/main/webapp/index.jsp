@@ -8,9 +8,9 @@
 <body>
 
     <div class="search-bar">
-        <form>
+        <form action="all_products.jsp" method="get">
             <div>
-                <input class="search-txt_box" type="text" placeholder="Cerca...">
+                <input class="search-txt_box" type="text" placeholder="Cerca..." name="search_q">
                 <button class="search-btn circle-btn" type="submit">
                     <i class="fa-solid fa-search"></i>
                 </button>
@@ -70,6 +70,7 @@
         <h1 class="center"><b>GLI ULTIMI ARRIVI</b></h1>
         <div class="products row center">    <!--Soluzione momentanea -->
         </div>
+        <h2 class="center"><a href="all_products.jsp"><i class="fa-solid fa-arrow-down"></i> Mostra tutti</a></h2>
     </div>
 
 
