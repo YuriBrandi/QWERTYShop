@@ -7,8 +7,13 @@
 <body>
     <%
         String search_q = "";
+        String categ = "";
+
         if(request.getParameter("search_q") != null)
             search_q = request.getParameter("search_q");
+
+        if(request.getParameter("categ") != null)
+            categ = request.getParameter("categ");
     %>
     <div class="container margin-from-nav center">
         <h1 class="center"><b>Tutti i prodotti</b></h1>
@@ -36,10 +41,33 @@
             </div>
             <div class="col-lg-3 col-sm-12">
                 <select class="input-txt_fld table-input" name="categ">
-                    <option value="" disabled selected>Categoria</option>
-                    <option value="Keyboard">Tastiere</option>
-                    <option value="Switch">Switch</option>
-                    <option value="Keycap">Keycap</option>
+                    <%
+                        switch (categ){
+                            case "Tastiera": {%>
+                                <option value="" disabled>Categoria</option>
+                                <option value="Tastiera" selected>Tastiere</option>
+                                <option value="Switch">Switch</option>
+                                <option value="Keycap">Keycap</option>
+                            <%}break;
+                            case "Switch": {%>
+                                <option value="" disabled>Categoria</option>
+                                <option value="Tastiera">Tastiere</option>
+                                <option value="Switch" selected>Switch</option>
+                                <option value="Keycap">Keycap</option>
+                            <%}break;
+                            case "Keycap": {%>
+                                <option value="" disabled>Categoria</option>
+                                <option value="Tastiera">Tastiere</option>
+                                <option value="Switch">Switch</option>
+                                <option value="Keycap" selected>Keycap</option>
+                            <%}break;
+                            default: {%>
+                                <option value="" disabled selected>Categoria</option>
+                                <option value="Tastiera">Tastiere</option>
+                                <option value="Switch">Switch</option>
+                                <option value="Keycap">Keycap</option>
+                            <%}
+                        }%>
                     <option value="">Tutte</option>
                 </select>
             </div>
@@ -61,7 +89,7 @@
             </div>
             <div class="col-lg-3 col-sm-12">
                 <select disabled class="input-txt_fld table-input" name="dimensione">
-                    <option value="" disabled selected>Dimensione Taastiera</option>
+                    <option value="" disabled selected>Dimensione Tastiera</option>
                     <option value="20">20%</option>
                     <option value="60">60%</option>
                     <option value="65">65%</option>
@@ -69,6 +97,7 @@
                     <option value="80">80%</option>
                     <option value="95">95%</option>
                     <option value="100">100%</option>
+                    <option value="">Tutti</option>
                 </select>
             </div>
             <div class="col-lg-3 col-sm-12">
@@ -76,14 +105,17 @@
                     <option value="" disabled selected>Layout</option>
                     <option value="ISO">ISO</option>
                     <option value="ANSI">ANSI</option>
+                    <option value="">Tutti</option>
                 </select>
             </div>
             <div class="col-lg-3 col-sm-12">
                 <select disabled class="input-txt_fld table-input" name="switch">
                     <option value="" disabled selected>Tipo Switch</option>
+                    <option value="Barebone">Barebone</option>
                     <option value="Tactile">Tattile</option>
                     <option value="Linear">Lineare</option>
                     <option value="Clicky">Clicky</option>
+                    <option value="">Tutti</option>
                 </select>
             </div>
             <div class="col-lg-3 col-sm-12">
@@ -97,6 +129,7 @@
                     <option value="KAT">KAT</option>
                     <option value="KAM">KAT</option>
                     <option value="MT3">MT3</option>
+                    <option value="">Tutti</option>
                 </select>
             </div>
 

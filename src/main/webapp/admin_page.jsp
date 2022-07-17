@@ -157,6 +157,7 @@
                         <div class="col-lg-2 col-sm-12">
                             <select required class="input-txt_fld table-input" name="switch">
                                 <option value="" disabled selected>Tipo Switch</option>
+                                <option value="Barebone">Barebone</option>
                                 <option value="Tactile">Tattile</option>
                                 <option value="Linear">Lineare</option>
                                 <option value="Clicky">Clicky</option>

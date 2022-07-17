@@ -57,24 +57,34 @@ $(document).ready(function (){
 
                     if (data[i].tipoSwitch == null)
                         optionSwitch += "<option value=\"\" disabled selected>Tipo Switch</option>" +
+                                        "<option value=\"Barebone\">Barebone</option>" +
                                         "<option value=\"Tactile\">Tattile</option>" +
                                         "<option value=\"Linear\">Lineare</option>" +
                                         " <option value=\"Clicky\">Clicky</option>";
                     else if (data[i].tipoSwitch.includes("Tactile"))
                         optionSwitch += "<option value=\"\" disabled>Tipo Switch</option>" +
+                            "<option value=\"Barebone\">Barebone</option>" +
                             "<option value=\"Tactile\" selected>Tattile</option>" +
                             "<option value=\"Linear\">Lineare</option>" +
                             " <option value=\"Clicky\">Clicky</option>";
                     else if (data[i].tipoSwitch.includes("Linear"))
                         optionSwitch += "<option value=\"\" disabled>Tipo Switch</option>" +
+                            "<option value=\"Barebone\">Barebone</option>" +
                             "<option value=\"Tactile\">Tattile</option>" +
                             "<option value=\"Linear\" selected>Lineare</option>" +
                             " <option value=\"Clicky\">Clicky</option>";
-                    else
+                    else if (data[i].tipoSwitch.includes("Clicky"))
                         optionSwitch += "<option value=\"\" disabled>Tipo Switch</option>" +
+                            "<option value=\"Barebone\">Barebone</option>" +
                             "<option value=\"Tactile\">Tattile</option>" +
                             "<option value=\"Linear\">Lineare</option>" +
                             " <option value=\"Clicky\" selected>Clicky</option>";
+                    else
+                        optionSwitch += "<option value=\"\" disabled>Tipo Switch</option>" +
+                            "<option value=\"Barebone\" selected>Barebone</option>" +
+                            "<option value=\"Tactile\">Tattile</option>" +
+                            "<option value=\"Linear\">Lineare</option>" +
+                            " <option value=\"Clicky\">Clicky</option>";
 
                     if (data[i].keyboardSize == 20)
                         optionDimensione = "<option value=\"20\" selected>20%</option>" +

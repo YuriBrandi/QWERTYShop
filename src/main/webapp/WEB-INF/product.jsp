@@ -35,7 +35,7 @@
                         <h3><b>HotSwappable</b>: <i class="fa-solid fa-xmark"></i></h3>
                     <%} %>
                 <%
-                        }break;
+                        } //Rimosso break per stamapre la tipologia switch anche per tastiera
                     case "Switch": {
                 %>
                     <h3><b>Tipologia Switch</b>: <%= p.getTipoSwitch()%></h3>
