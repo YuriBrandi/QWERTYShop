@@ -391,7 +391,7 @@ $(document).ready(function (){
                         "                  <option value=\"DSA\">DSA</option>\n" +
                         "                  <option value=\"SA\">SA</option>\n" +
                         "                  <option value=\"KAT\">KAT</option>\n" +
-                        "                  <option value=\"KAM\">KAT</option>\n" +
+                        "                  <option value=\"KAM\">KAM</option>\n" +
                         "                   <option value=\"MT3\">MT3</option>";
                     else if (data[i].keycapProfile.includes("OEM"))
                         optionProfile += " <option value=\"Cherry\">Cherry</option>\n" +
@@ -400,7 +400,7 @@ $(document).ready(function (){
                             "                  <option value=\"DSA\">DSA</option>\n" +
                             "                  <option value=\"SA\">SA</option>\n" +
                             "                  <option value=\"KAT\">KAT</option>\n" +
-                            "                  <option value=\"KAM\">KAT</option>\n" +
+                            "                  <option value=\"KAM\">KAM</option>\n" +
                             "                   <option value=\"MT3\">MT3</option>";
                     else if (data[i].keycapProfile.includes("XDA"))
                         optionProfile += " <option value=\"Cherry\">Cherry</option>\n" +
@@ -409,7 +409,7 @@ $(document).ready(function (){
                             "                  <option value=\"DSA\">DSA</option>\n" +
                             "                  <option value=\"SA\">SA</option>\n" +
                             "                  <option value=\"KAT\">KAT</option>\n" +
-                            "                  <option value=\"KAM\">KAT</option>\n" +
+                            "                  <option value=\"KAM\">KAM</option>\n" +
                             "                   <option value=\"MT3\">MT3</option>";
                     else if (data[i].keycapProfile.includes("DSA"))
                         optionProfile += " <option value=\"Cherry\">Cherry</option>\n" +
@@ -418,7 +418,7 @@ $(document).ready(function (){
                             "                  <option value=\"DSA\" selected>DSA</option>\n" +
                             "                  <option value=\"SA\">SA</option>\n" +
                             "                  <option value=\"KAT\">KAT</option>\n" +
-                            "                  <option value=\"KAM\">KAT</option>\n" +
+                            "                  <option value=\"KAM\">KAM</option>\n" +
                             "                   <option value=\"MT3\">MT3</option>";
                     else if (data[i].keycapProfile.includes("SA"))
                         optionProfile += " <option value=\"Cherry\">Cherry</option>\n" +
@@ -427,7 +427,7 @@ $(document).ready(function (){
                             "                  <option value=\"DSA\">DSA</option>\n" +
                             "                  <option value=\"SA\" selected>SA</option>\n" +
                             "                  <option value=\"KAT\">KAT</option>\n" +
-                            "                  <option value=\"KAM\">KAT</option>\n" +
+                            "                  <option value=\"KAM\">KAM</option>\n" +
                             "                   <option value=\"MT3\">MT3</option>";
                     else if (data[i].keycapProfile.includes("KAT"))
                         optionProfile += " <option value=\"Cherry\">Cherry</option>\n" +
@@ -436,7 +436,7 @@ $(document).ready(function (){
                             "                  <option value=\"DSA\">DSA</option>\n" +
                             "                  <option value=\"SA\">SA</option>\n" +
                             "                  <option value=\"KAT\" selected>KAT</option>\n" +
-                            "                  <option value=\"KAM\">KAT</option>\n" +
+                            "                  <option value=\"KAM\">KAM</option>\n" +
                             "                   <option value=\"MT3\">MT3</option>";
                     else if (data[i].keycapProfile.includes("KAM"))
                         optionProfile += " <option value=\"Cherry\">Cherry</option>\n" +
@@ -445,7 +445,7 @@ $(document).ready(function (){
                             "                  <option value=\"DSA\">DSA</option>\n" +
                             "                  <option value=\"SA\">SA</option>\n" +
                             "                  <option value=\"KAT\">KAT</option>\n" +
-                            "                  <option value=\"KAM\" selected>KAT</option>\n" +
+                            "                  <option value=\"KAM\" selected>KAM</option>\n" +
                             "                   <option value=\"MT3\">MT3</option>";
                     else
                         optionProfile += " <option value=\"Cherry\">Cherry</option>\n" +
@@ -454,7 +454,7 @@ $(document).ready(function (){
                             "                  <option value=\"DSA\">DSA</option>\n" +
                             "                  <option value=\"SA\">SA</option>\n" +
                             "                  <option value=\"KAT\">KAT</option>\n" +
-                            "                  <option value=\"KAM\">KAT</option>\n" +
+                            "                  <option value=\"KAM\">KAM</option>\n" +
                             "                   <option value=\"MT3\" selected>MT3</option>";
 
                     for (var j = 0; j < images.length; j++) {

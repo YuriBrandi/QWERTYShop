@@ -303,7 +303,7 @@
                                 <option value="DSA">DSA</option>
                                 <option value="SA">SA</option>
                                 <option value="KAT">KAT</option>
-                                <option value="KAM">KAT</option>
+                                <option value="KAM">KAM</option>
                                 <option value="MT3">MT3</option>
                             </select>
                         </div>
