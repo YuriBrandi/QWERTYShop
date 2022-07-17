@@ -57,7 +57,7 @@
             <li><a href="#"><b>Tastiere</b></a></li>
             <li><a href="#"><b>Switch</b></a></li>
             <li><a href="#"><b>Keycaps</b></a></li>
-            <li><a href="#"><b>About us</b></a></li>
+            <li><a href="about_us.jsp"><b>About us</b></a></li>
             <li><a href="#"><b>Contattaci</b></a></li>
         </ul>
     </div>

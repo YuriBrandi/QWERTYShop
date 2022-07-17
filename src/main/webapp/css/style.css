@@ -197,6 +197,16 @@ del {
     color: darkred;
 }
 
+a.web-ref i {
+    color: #262626;
+    font-size: 2rem;
+    transition-duration: 0.4s;
+}
+
+a.web-ref i:hover {
+    color: #FFCB73;
+}
+
 /*
     FORM Login & Registrazione
  */
