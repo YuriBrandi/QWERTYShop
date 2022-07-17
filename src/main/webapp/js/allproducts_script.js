@@ -14,6 +14,8 @@ $(document).ready(function (){
             console.log("Length iniziale: " + data.length);
             lista_prodotti = data;
 
+            orderProd(lista_prodotti, $('select[name = order]').val());
+
             search_query = $('.search-txt_box').val();
             categ = $('select[name = categ]').val();
 
@@ -33,6 +35,7 @@ $(document).ready(function (){
                 lista_prodotti[i].marca.toLowerCase().includes(search_query))
                         lista_prodotti_filtrati.push(lista_prodotti[i]);
         }
+
 
         if(isRgb != undefined && isRgb.length != 0)
             lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
@@ -88,6 +91,7 @@ $(document).ready(function (){
 
         }
 
+
         console.log("Length finale: " + lista_prodotti_filtrati.length);
     }
 
@@ -133,6 +137,33 @@ $(document).ready(function (){
                         "                </div>");
                 }
             }
+    }
+
+    function orderProd(prods, order) {
+        switch (order) {
+            case "idDesc": prods.sort((a, b) => b.idProdotto - a.idProdotto);break;
+            case "idAsc" : prods.sort((a, b) => a.idProdotto - b.idProdotto);break;
+            case "nomeAsc" : {
+                prods.sort(function (a, b){
+                    if(a.nome < b.nome)
+                        return 1;
+                    if(a.nome > b.nome)
+                        return -1;
+                    return 0;
+                });
+            }break;
+            case "nomeDesc" : {
+                prods.sort(function (a, b){
+                    if(a.nome < b.nome)
+                        return -1;
+                    if(a.nome > b.nome)
+                        return 1;
+                    return 0;
+                });
+            }break;
+            case "prezzoAsc": prods.sort((a, b) => a.prezzo - b.prezzo);break;
+            case "prezzoDesc" : prods.sort((a, b) => b.prezzo - a.prezzo);break;
+        }
     }
 
 
@@ -243,6 +274,14 @@ $(document).ready(function (){
     $('select[name = profilo]').change(function (){
         keycap_prof = $(this).val();
 
+        applica_filtri();
+        show_prod(lista_prodotti_filtrati);
+    });
+
+    $('select[name = order]').change(function (){
+        order = $(this).val();
+
+        orderProd(lista_prodotti, $(this).val());
         applica_filtri();
         show_prod(lista_prodotti_filtrati);
     });
