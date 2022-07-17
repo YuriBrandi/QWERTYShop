@@ -32,7 +32,7 @@
                     <%if (p.isHotSwappable()) {%>
                         <h3><b>HotSwappable</b>: <i class="fa-solid fa-check"></i></h3>
                     <%} else { %>
-                        <h3><b>HotSwappable</b>: <i class="fa-solid fa-xcross"></i></h3>
+                        <h3><b>HotSwappable</b>: <i class="fa-solid fa-xmark"></i></h3>
                     <%} %>
                 <%
                         }break;
@@ -52,7 +52,7 @@
                 <%if (p.isRGB()) {%>
                     <h3><b>RGB</b>: <i class="fa-solid fa-check"></i></h3>
                 <%} else { %>
-                    <h3><b>RGB</b>: <i class="fa-solid fa-xcross"></i></h3>
+                    <h3><b>RGB</b>: <i class="fa-solid fa-xmark"></i></h3>
                 <%} %>
                 <p><b>Descrizione:</b> <%= p.getDescrizione()%></p>
                 <%if (p.getPercSconto() == 0) {%>
