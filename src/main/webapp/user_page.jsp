@@ -45,7 +45,7 @@
 
         </br></br></br>
         <h2 class="center">Ordini:</h2>
-        <table class="table">
+        <table class="table admin-mode">
             <tr>
                 <th>ID</th>
                 <th>Data</th>
@@ -55,20 +55,21 @@
                 <th>Azioni</th>
             </tr>
             <%
-                ArrayList<Ordine> ordini = new OrdineDAO().doRetrieveAllByEmail(u.getEmail());
-                for(Ordine o : ordini){
+                if(u != null){
+                    ArrayList<Ordine> ordini = new OrdineDAO().doRetrieveAllByEmail(u.getEmail());
+                    for(Ordine o : ordini){
             %>
-                <tr>
-                    <td class="id_ord"><%= o.getIdOrdine()%></td>
-                    <td><%= o.getDataOrdine()%></td>
-                    <td><%= o.getIndirizzoSpedizione()%></td>
-                    <td class="tot_ord"><%= String.format("%.2f", o.getPrezzoFinale())%>€</td>
-                    <td><%= o.getTracking()%></td>
-                    <td>
-                        <button class="circle-btn mostra_dett"><i class="fa-solid fa-eye"></i></button>
-                    </td>
-                </tr>
-            <%}%>
+                    <tr>
+                        <td class="id_ord"><%= o.getIdOrdine()%></td>
+                        <td><%= o.getDataOrdine()%></td>
+                        <td><%= o.getIndirizzoSpedizione()%></td>
+                        <td class="tot_ord"><%= String.format("%.2f", o.getPrezzoFinale())%>€</td>
+                        <td><%= o.getTracking()%></td>
+                        <td>
+                            <button class="circle-btn mostra_dett"><i class="fa-solid fa-eye"></i></button>
+                        </td>
+                    </tr>
+            <%}}%>
         </table>
     </div>
 
