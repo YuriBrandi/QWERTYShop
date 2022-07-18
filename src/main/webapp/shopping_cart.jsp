@@ -15,7 +15,7 @@
 
     <div class="container center margin-from-nav">
 
-        <table class="table">
+        <table class="table admin-mode">
             <tr>
                 <th>Nome</th>
                 <th>Quantità</th>
