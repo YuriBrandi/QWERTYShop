@@ -1,22 +1,22 @@
 $(document).ready(function(){
     //carousel
-    var interval = window.setInterval(rotateSlides, 4000); // Duration until slide changes (3sec)
+   window.setInterval(rotateSlides, 4000); // Durata di una slide (4sec)
 
     function rotateSlides(){
         // Get the first slide and store it
         var $firstSlide = $('#carousel').find('div:first');
 
-        // Get the width of the slide so we know how much to slide by
+        // Larghezza della prima slide.
         var width = $firstSlide.width();
 
-        // Animate the first slide to move to the left the length of the
-        // width. Set 1000 (1sec) to be the length of the slide transition.
+        // Sposta con animazione la prima slide della quantità della sua larghezza (facendola scorrere completamente)
+        // Durata della transizione: 1 sec.
         $firstSlide.animate({marginLeft: -width}, 1000, function(){
-            // Reorder slides - move the $firstSlide after the last slide
+            // Poni la prima slide del ciclo come ultimo div
             var $lastSlide = $('#carousel').find('div:last');
             $lastSlide.after($firstSlide);
 
-            // Reset slide position to the end of the queue
+            // Reset del margin left.
             $firstSlide.css({marginLeft: 0});
         });
     }
