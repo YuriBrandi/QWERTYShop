@@ -40,7 +40,7 @@ public class RemoveFromCart extends HttpServlet {
                 if(cart_dao.doDeleteAll(item.getEmail()) == -1)
                     writer.print("{\"status\": \"error\"}");
                 else{
-                    session.setAttribute("cart_count", (Integer) session.getAttribute("cart_count") + item.getQuantita());
+                    session.setAttribute("cart_count", 0);
                     writer.print("{\"status\": \"success\"}");
                 }
             }
@@ -56,6 +56,7 @@ public class RemoveFromCart extends HttpServlet {
                         writer.print("{\"status\": \"not_in_cart\"}");
                     else{
                         short new_qnty = (short) (temp_item.getQuantita() - item.getQuantita());
+                        session.setAttribute("cart_count", (Integer) session.getAttribute("cart_count") - item.getQuantita());
                         if(new_qnty < 1)
                             cart_dao.doDeleteItem(item);
                         else
