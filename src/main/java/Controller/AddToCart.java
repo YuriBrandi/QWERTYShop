@@ -33,10 +33,15 @@ public class AddToCart extends HttpServlet {
             CarrelloDAO cart_dao = new CarrelloDAO();
             Carrello temp_item = cart_dao.doRetrieveByIdEmail(cart_item.getEmail(), idProdotto);
 
-            if(temp_item != null)
-                cart_dao.doUpdateQuantity(cart_item, (short) (cart_item.getQuantita() + temp_item.getQuantita()));
-            else
+            if(temp_item != null){
+                Short new_qnty= (short) (cart_item.getQuantita() + temp_item.getQuantita());
+                cart_dao.doUpdateQuantity(cart_item, new_qnty);
+                session.setAttribute("cart_count", (Integer) session.getAttribute("cart_count") + new_qnty);
+            }
+            else {
                 cart_dao.doInsertItem(cart_item);
+                session.setAttribute("cart_count", (Integer) session.getAttribute("cart_count") + cart_item.getQuantita());
+            }
 
         }
         else { //(carrello modalità guest) Questo è il momento di creazione del carrello guest

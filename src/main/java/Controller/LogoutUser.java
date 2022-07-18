@@ -14,6 +14,7 @@ public class LogoutUser extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.getSession().removeAttribute("utente");
+        request.getSession().removeAttribute("cart_count");
 
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }

@@ -43,7 +43,8 @@ public class CreateUser extends HttpServlet {
             else{
                 u_DAO.doSave(u);
                 request.getSession().setAttribute("utente", u);
-                LoginUser.mergeCart(request.getSession(), new CarrelloDAO());
+                int cont = LoginUser.mergeCart(request.getSession(), new CarrelloDAO());
+                request.getSession().setAttribute("cart_count", cont);
                 addr = "index.jsp";
             }
 

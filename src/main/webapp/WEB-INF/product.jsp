@@ -9,6 +9,7 @@
     <%
         DecimalFormat df = new DecimalFormat("0.00");
         Prodotto p = (Prodotto) request.getAttribute("prodotto");
+        Carrello item = (Carrello) request.getAttribute("cart_item");
     %>
     <title><%=p.getNome()%></title>
 </head>
@@ -81,15 +82,12 @@
                         int inCart_qnty = 0;
 
 
-                        if(cart_list != null)
-                            for(Carrello item: cart_list)
-                                if (item.getIdProdotto() == p.getIdProdotto()) {
-                                    if(item.getQuantita() >= p.getPezziDisponibili())
-                                        posso_aggiungere = false;
+                        if(item != null){
+                            if(item.getQuantita() >= p.getPezziDisponibili())
+                                posso_aggiungere = false;
 
-                                    inCart_qnty = item.getQuantita();
-                                    break;
-                                }
+                            inCart_qnty = item.getQuantita();
+                        }
                     %>
                     <input type="hidden" name="cart_qnty" value = "<%= inCart_qnty %>">
                     <%

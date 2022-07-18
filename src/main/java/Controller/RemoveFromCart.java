@@ -39,8 +39,10 @@ public class RemoveFromCart extends HttpServlet {
             if(idProdotto == -1){
                 if(cart_dao.doDeleteAll(item.getEmail()) == -1)
                     writer.print("{\"status\": \"error\"}");
-                else
+                else{
+                    session.setAttribute("cart_count", (Integer) session.getAttribute("cart_count") + item.getQuantita());
                     writer.print("{\"status\": \"success\"}");
+                }
             }
             else{
                 if(quantita == -1)

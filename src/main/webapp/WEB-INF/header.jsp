@@ -40,17 +40,13 @@
             </b></a></li>
             <%
                 int cont = 0;
-                ArrayList<Carrello> cart_list = null;
-                if(u != null)
-                   cart_list = new CarrelloDAO().doRetrieveAllByEmail(u.getEmail());
-                else
-                if(session.getAttribute("carrello_guest") != null)
-                    cart_list = (ArrayList<Carrello>) session.getAttribute("carrello_guest");
-
-                if(cart_list != null)
-                    for (Carrello cart_item : cart_list) {
-                        cont += cart_item.getQuantita();
-                    }
+                if(session.getAttribute("cart_count") != null)
+                    cont = (Integer) session.getAttribute("cart_count");
+                else if(session.getAttribute("carrello_guest") != null){
+                    ArrayList<Carrello> cart_list = (ArrayList<Carrello>) session.getAttribute("carrello_guest");
+                    for(Carrello c_item : cart_list)
+                        cont += c_item.getQuantita();
+                }
 
             %>
             <li class="small-screen-option"><a href="shopping_cart.jsp"><b>Carrello (<%= cont %>)</b></a></li>
