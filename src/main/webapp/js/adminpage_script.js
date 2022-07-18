@@ -764,7 +764,6 @@ $(document).ready(function (){
     });
 
     $("body").on('click', '.open-modal', function (e) {
-        e.preventDefault();
         var modal = $(this).attr('modal-target');
         $('[modal-name="' + modal + '"]').addClass('active');
         $('body').addClass('no-scroll');

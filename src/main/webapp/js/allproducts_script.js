@@ -55,19 +55,19 @@ $(document).ready(function (){
 
                     if(isHowSwap != undefined && isHowSwap.length != 0)
                         lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
-                            console.log("filtro isHowSwap");
+                            //console.log("filtro isHowSwap");
                             return prod.hotSwappable == isHowSwap;
                         });
 
                     if(dim_tast != undefined && dim_tast.length != 0)
                     lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
-                        console.log("filtro dim");
+                        //console.log("filtro dim");
                         return prod.keyboardSize == dim_tast;
                     });
 
                     if(layout_tast != undefined && layout_tast.length != 0)
                         lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
-                            console.log("filtro layout_tast");
+                            //console.log("filtro layout_tast");
                             return prod.keyboardLayout == layout_tast;
                         });
 
@@ -75,7 +75,7 @@ $(document).ready(function (){
                 case "Switch":{
                     if(tipo_switch != undefined && tipo_switch.length != 0)
                         lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
-                            console.log("filtro tipo_switch");
+                            //console.log("filtro tipo_switch");
                             return prod.tipoSwitch == tipo_switch;
                         });
                 }break;
@@ -83,7 +83,7 @@ $(document).ready(function (){
 
                     if(keycap_prof != undefined && keycap_prof.length != 0)
                         lista_prodotti_filtrati = lista_prodotti_filtrati.filter(function (prod){
-                            console.log("filtro keyap_pfo");
+                            //console.log("filtro keyap_pfo");
                             return prod.keycapProfile == keycap_prof;
                         });
                 }break;
